@@ -1,12 +1,15 @@
 import "./config";
 import ArcGISMap from "esri/Map";
 import MapView from "esri/views/MapView";
+import GraphicsLayer from "esri/layers/GraphicsLayer";
 import React from "react";
 
 export default function App() {
+  const layer = new GraphicsLayer();
   React.useEffect(() => {
     const map = new ArcGISMap({
       basemap: "topo",
+      layers: [layer],
     });
 
     const view = new MapView({
@@ -17,6 +20,7 @@ export default function App() {
     });
     window._view = view;
     window._map = map;
+    window._layer = layer;
   });
   return (
     <div>

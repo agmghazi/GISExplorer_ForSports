@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import FeaturesService from "./FeaturesService";
+import Widgets from "./Widgets";
 
 const wrapper = document.getElementById("root");
 wrapper
@@ -9,6 +10,7 @@ wrapper
       <div>
         <App />
         <FeaturesService />
+        <Widgets />
       </div>,
       wrapper
     )
