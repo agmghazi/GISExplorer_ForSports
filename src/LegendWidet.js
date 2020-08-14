@@ -29,18 +29,15 @@ export default function FeaturesService() {
       expandIconClass: "esri-icon-collection",
       view: window._view,
       content: legend,
+      expanded: false,
     });
     window._view.ui.add([
       {
         component: legendExpand,
-        position: "top-left",
+        position: "bottom-left",
         index: 3,
       },
     ]);
   });
-  return (
-    <div>
-      <h1>hi</h1>
-    </div>
-  );
+  return <div></div>;
 }

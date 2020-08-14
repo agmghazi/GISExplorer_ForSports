@@ -15,6 +15,7 @@ export default function FeaturesService() {
         expandIconClass: "esri-icon-printer",
         view: window._view,
         content: print,
+        expandTooltip: "الطباعه",
       });
       window._view.ui.add([
         {

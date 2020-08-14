@@ -6,6 +6,7 @@ import Widgets from "./Widgets";
 import NavigationTools from "./NavigationTools";
 import PrintWidget from "./PrintWidget";
 import LegendWidet from "./LegendWidet";
+import Screenshot from "./Screenshot";
 
 const wrapper = document.getElementById("root");
 wrapper
@@ -17,6 +18,7 @@ wrapper
         <NavigationTools />
         <PrintWidget />
         <LegendWidet />
+        <Screenshot />
       </div>,
       wrapper
     )

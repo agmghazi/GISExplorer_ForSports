@@ -30,7 +30,7 @@ export default function Widgets() {
     });
     const sketchExpand = new Expand({
       expandIconClass: "esri-icon-sketch-rectangle",
-      label: "أدوات الرسم",
+      expandTooltip: "أدوات الرسم",
       view: window._view,
       content: sketch,
       mode: "floating",
@@ -44,14 +44,14 @@ export default function Widgets() {
       view: window._view,
       content: basemapToggle,
       expanded: false,
-      label: "الخرائط",
+      expandTooltip: "الخرائط",
     });
     const AreameasurementWidget = new AreaMeasurement2D({
       view: window._view,
     });
     const AreameasurementExpand = new Expand({
       expandIconClass: "esri-icon-measure-area",
-      label: "قياس مساحات",
+      expandTooltip: "قياس مساحات",
       view: window._view,
       content: AreameasurementWidget,
       mode: "floating",
@@ -61,7 +61,7 @@ export default function Widgets() {
     });
     const DistanceExpand = new Expand({
       expandIconClass: "esri-icon-measure-line",
-      label: "قياس مسافات",
+      expandTooltip: "قياس مسافات",
       view: window._view,
       content: DistanceWidget,
       mode: "floating",
@@ -71,7 +71,7 @@ export default function Widgets() {
     });
     const CoordinateExpand = new Expand({
       expandIconClass: "esri-icon-tracking",
-      label: "الاحداثيات",
+      expandTooltip: "الاحداثيات",
       view: window._view,
       content: CoordinateWidget,
       mode: "floating",
@@ -86,16 +86,17 @@ export default function Widgets() {
       view: window._view,
       content: bookmarks,
       expanded: false,
+      expandTooltip: "حفظ الاماكن",
     });
     window._view.ui.add([
       {
         component: homeWidget,
-        position: "top-right",
+        position: "top-left",
         index: 5,
       },
       {
         component: compass,
-        position: "top-right",
+        position: "top-left",
         index: 4,
       },
       {
@@ -105,22 +106,22 @@ export default function Widgets() {
       },
       {
         component: sketchExpand,
-        position: "top-right",
+        position: "top-left",
         index: 5,
       },
       {
         component: basemapExpand,
-        position: "top-right",
+        position: "top-left",
         index: 3,
       },
       {
         component: AreameasurementExpand,
-        position: "top-right",
+        position: "top-left",
         index: 6,
       },
       {
         component: DistanceExpand,
-        position: "top-right",
+        position: "top-left",
         index: 5,
       },
       {
@@ -130,7 +131,7 @@ export default function Widgets() {
       },
       {
         component: BookmarksExpands,
-        position: "top-right",
+        position: "top-left",
         index: 2,
       },
     ]);
