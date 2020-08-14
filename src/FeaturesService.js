@@ -53,10 +53,12 @@ export default function FeaturesService() {
       popupTemplate,
       renderer: featureLayerSymbol,
     });
+    window._featureLayer = featureLayer;
 
     const MapImage = new MapImageLayer({
       url: "http://localhost:6080/arcgis/rest/services/DataWorker_H/MapServer",
     });
+    window._MapImage = MapImage;
 
     window._map.addMany([MapImage, featureLayer]);
 

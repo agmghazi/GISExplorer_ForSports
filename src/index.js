@@ -4,6 +4,8 @@ import App from "./App";
 import FeaturesService from "./FeaturesService";
 import Widgets from "./Widgets";
 import NavigationTools from "./NavigationTools";
+import PrintWidget from "./PrintWidget";
+import LegendWidet from "./LegendWidet";
 
 const wrapper = document.getElementById("root");
 wrapper
@@ -13,6 +15,8 @@ wrapper
         <FeaturesService />
         <Widgets />
         <NavigationTools />
+        <PrintWidget />
+        <LegendWidet />
       </div>,
       wrapper
     )
