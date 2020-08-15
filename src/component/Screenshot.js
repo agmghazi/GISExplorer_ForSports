@@ -204,7 +204,7 @@ export default function Screenshot() {
           aria-label="Select screenshot area"
           title="لقطة الشاشه"
         >
-          <i class="fas fa-camera  fa-lg"></i>
+          <i className="fas fa-camera  fa-lg"></i>
         </button>
       </div>
       <div className="container ">

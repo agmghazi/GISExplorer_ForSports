@@ -1,4 +1,3 @@
-import "./config";
 import React from "react";
 import Home from "esri/widgets/Home";
 import Compass from "esri/widgets/Compass";
@@ -92,7 +91,7 @@ export default function Widgets() {
       {
         component: homeWidget,
         position: "top-left",
-        index: 5,
+        index: 2,
       },
       {
         component: compass,
@@ -112,17 +111,17 @@ export default function Widgets() {
       {
         component: basemapExpand,
         position: "top-left",
-        index: 3,
+        index: 6,
       },
       {
         component: AreameasurementExpand,
         position: "top-left",
-        index: 6,
+        index: 7,
       },
       {
         component: DistanceExpand,
         position: "top-left",
-        index: 5,
+        index: 8,
       },
       {
         component: CoordinateExpand,
@@ -132,7 +131,14 @@ export default function Widgets() {
       {
         component: BookmarksExpands,
         position: "top-left",
-        index: 2,
+        index: 9,
+      },
+    ]);
+    window._view.ui.move([
+      {
+        component: "zoom",
+        position: "top-left",
+        index: 3,
       },
     ]);
   });

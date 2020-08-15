@@ -21,7 +21,7 @@ export default function FeaturesService() {
         {
           component: printExpand,
           position: "top-left",
-          index: 2,
+          index: 10,
         },
       ]);
     });

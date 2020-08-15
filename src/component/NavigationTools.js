@@ -1,4 +1,3 @@
-import "./config";
 import React from "react";
 // import watchUtils from "esri/core/watchUtils";
 import * as watchUtils from "arcgis-js-api/core/watchUtils";

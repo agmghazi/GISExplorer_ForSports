@@ -1,4 +1,3 @@
-import "./config";
 import React from "react";
 import FeatureLayer from "esri/layers/FeatureLayer";
 import MapImageLayer from "esri/layers/MapImageLayer";
