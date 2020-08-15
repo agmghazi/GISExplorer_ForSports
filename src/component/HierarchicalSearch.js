@@ -4,9 +4,9 @@ import QueryTask from "esri/tasks/QueryTask";
 import Query from "esri/tasks/support/Query";
 import Graphic from "esri/Graphic";
 
-export default function HerarchicalSearch() {
+export default function HierarchicalSearch() {
   // var HerarchicalSearchs = {};
-  var _stateFeatures, _countiesFeatures;
+  var _stateFeatures, _countiesFeatures, _cityFeatures;
   var polygonSymbol = {
     type: "simple-fill", // autocasts as new SimpleFillSymbol()
     color: [51, 51, 204, 0.2],
@@ -20,7 +20,7 @@ export default function HerarchicalSearch() {
   React.useEffect(() => {
     let queryTask = new QueryTask({
       url:
-        "https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/2",
+        "http://localhost:6080/arcgis/rest/services/DataWorker_H/FeatureServer/10",
     });
 
     let query = new Query();
@@ -32,28 +32,27 @@ export default function HerarchicalSearch() {
       let ddlStates = document.querySelector("#ddlStates");
       _stateFeatures = results.features;
       results.features.map((feature) => {
-        const state_name = feature.attributes.state_name;
+        const name_arabi = feature.attributes.name_arabi;
         let opt = document.createElement("option");
-        opt.value = state_name;
-        opt.innerHTML = state_name;
+        opt.value = name_arabi;
+        opt.innerHTML = name_arabi;
         ddlStates.appendChild(opt);
       });
     });
 
     document.querySelector("#ddlStates").onchange = () => {
-      const stateName = document.querySelector("#ddlStates").value;
+      const name_arabi = document.querySelector("#ddlStates").value;
       _stateFeatures.map((feature) => {
-        if (feature.attributes.state_name === stateName) {
+        if (feature.attributes.name_arabi === name_arabi) {
           var graphic = new Graphic({
             geometry: feature.geometry,
             symbol: polygonSymbol,
             attributes: feature.attributes,
             popupTemplate: {
-              title: "{state_name}",
-              content: "state_name: {state_name} - pop2000:{pop2000}",
+              title: "{name_arabi}",
+              content: "name_arabi: {name_arabi}",
             },
           });
-          console.log(feature.attributes);
           window._view.graphics.removeAll();
           window._view.graphics.add(graphic);
           window._view.goTo(graphic);
@@ -62,53 +61,93 @@ export default function HerarchicalSearch() {
 
       let queryTaskS = new QueryTask({
         url:
-          "https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/3",
+          "http://localhost:6080/arcgis/rest/services/DataWorker_H/FeatureServer/11",
       });
-      console.log("name in value: " + stateName);
       let queryS = new Query();
       queryS.returnGeometry = true;
       queryS.outFields = ["*"];
-      queryS.where = `state_name = '${stateName}'`;
+      queryS.where = `country = '${name_arabi}'`;
       queryTaskS.execute(queryS).then((results) => {
         let ddlCounties = document.querySelector("#ddlCounties");
         _countiesFeatures = results.features;
+
         //this for clean successfully
         while (ddlCounties.firstChild)
           ddlCounties.removeChild(ddlCounties.firstChild);
         ddlCounties.disabled = false;
 
         results.features.map((feature) => {
-          const name = feature.attributes.name;
+          const name_a = feature.attributes.name_a;
           let opt = document.createElement("option");
-          opt.value = name;
-          opt.innerHTML = name;
+          opt.value = name_a;
+          opt.innerHTML = name_a;
           ddlCounties.appendChild(opt);
         });
       });
     };
 
     document.querySelector("#ddlCounties").onchange = () => {
-      const name = document.querySelector("#ddlCounties").value;
-      console.log("value for contry: " + name);
+      const name_a = document.querySelector("#ddlCounties").value;
       _countiesFeatures.map((feature) => {
-        if (feature.attributes.name === name) {
+        if (feature.attributes.name_a === name_a) {
           var graphic = new Graphic({
             geometry: feature.geometry,
             symbol: polygonSymbol,
             attributes: feature.attributes,
             popupTemplate: {
-              title: "{name}",
-              content: "{state_name} -{name}",
+              title: "{name_a}",
+              content: "{name_a} - {country}",
             },
           });
-          console.log(feature.attributes);
+          window._view.graphics.removeAll();
+          window._view.graphics.add(graphic);
+          window._view.goTo(graphic);
+        }
+      });
+
+      let cityTask = new QueryTask({
+        url:
+          "http://localhost:6080/arcgis/rest/services/DataWorker_H/FeatureServer/12",
+      });
+      let cityQuery = new Query();
+      cityQuery.returnGeometry = true;
+      cityQuery.outFields = ["*"];
+      cityQuery.where = `zone = '${name_a}'`;
+      console.log(name_a);
+      cityTask.execute(cityQuery).then((results) => {
+        let ddlCity = document.querySelector("#ddlCity");
+        _cityFeatures = results.features;
+        //this for clean successfully
+        while (ddlCity.firstChild) ddlCity.removeChild(ddlCity.firstChild);
+        ddlCity.disabled = false;
+        results.features.map((feature) => {
+          const admnuntarn = feature.attributes.admnuntarn;
+          let opts = document.createElement("option");
+          opts.value = admnuntarn;
+          opts.innerHTML = admnuntarn;
+          ddlCity.appendChild(opts);
+        });
+      });
+    };
+    document.querySelector("#ddlCity").onchange = () => {
+      const admnuntarn = document.querySelector("#ddlCity").value;
+      _cityFeatures.map((feature) => {
+        if (feature.attributes.admnuntarn === admnuntarn) {
+          var graphic = new Graphic({
+            geometry: feature.geometry,
+            symbol: polygonSymbol,
+            attributes: feature.attributes,
+            popupTemplate: {
+              title: "{admnuntarn}",
+              content: "{admnuntarn} - {admnuntarn}",
+            },
+          });
           window._view.graphics.removeAll();
           window._view.graphics.add(graphic);
           window._view.goTo(graphic);
         }
       });
     };
-
     const HsearchExpand = new Expand({
       expandIconClass: "esri-icon-search",
       expandTooltip: "البحث",
@@ -139,10 +178,15 @@ export default function HerarchicalSearch() {
               className="esri-input"
               className="custom-select"
               disabled
-            >
-              {" "}
-            </select>
-          </div>{" "}
+            ></select>
+            <br />
+            <select
+              id="ddlCity"
+              className="esri-input"
+              className="custom-select"
+              disabled
+            ></select>
+          </div>
         </div>
       </div>
     </div>

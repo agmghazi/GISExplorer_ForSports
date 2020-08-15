@@ -9,7 +9,7 @@ import PrintWidget from "./component/PrintWidget";
 import LegendWidet from "./component/LegendWidet";
 import Screenshot from "./component/Screenshot";
 import SearchWidget from "./component/SearchWidget";
-import HerarchicalSearch from "./component/HerarchicalSearch";
+import HierarchicalSearch from "./component/HierarchicalSearch";
 
 const wrapper = document.getElementById("root");
 wrapper
@@ -23,7 +23,7 @@ wrapper
         <LegendWidet />
         <Screenshot />
         <SearchWidget />
-        <HerarchicalSearch />
+        <HierarchicalSearch />
       </>,
       wrapper
     )
