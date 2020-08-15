@@ -87,6 +87,14 @@ export default function Widgets() {
       expanded: false,
       expandTooltip: "حفظ الاماكن",
     });
+    window._view.ui.move([
+      {
+        component: "zoom",
+        position: "top-left",
+        index: 3,
+      },
+    ]);
+
     window._view.ui.add([
       {
         component: homeWidget,
@@ -131,14 +139,7 @@ export default function Widgets() {
       {
         component: BookmarksExpands,
         position: "top-left",
-        index: 9,
-      },
-    ]);
-    window._view.ui.move([
-      {
-        component: "zoom",
-        position: "top-left",
-        index: 3,
+        index: 6,
       },
     ]);
   });

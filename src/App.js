@@ -17,6 +17,14 @@ export default function App() {
       container: "mapView",
       zoom: 10,
       center: [50.03602559770744, 26.38306796977232], // longitude, latitude
+      popup: {
+        dockEnabled: true,
+        dockOptions: {
+          breakpoint: false,
+          buttonEnabled: false,
+          position: "top-center",
+        },
+      },
     });
     window._view = view;
     window._map = map;

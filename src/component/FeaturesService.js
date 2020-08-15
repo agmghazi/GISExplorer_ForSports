@@ -45,21 +45,21 @@ export default function FeaturesService() {
       },
     };
 
-    const featureLayer = new FeatureLayer({
+    const survyPoint = new FeatureLayer({
       url:
-        "http://localhost:6080/arcgis/rest/services/DataWorker_H/FeatureServer/2",
+        "http://localhost:6080/arcgis/rest/services/DataWorker_H/FeatureServer/5",
       outFields: ["*"],
       popupTemplate,
       renderer: featureLayerSymbol,
     });
-    window._featureLayer = featureLayer;
+    window._survyPoint = survyPoint;
 
     const MapImage = new MapImageLayer({
       url: "http://localhost:6080/arcgis/rest/services/DataWorker_H/MapServer",
     });
     window._MapImage = MapImage;
 
-    window._map.addMany([MapImage, featureLayer]);
+    window._map.addMany([MapImage, survyPoint]);
 
     MapImage.when(() => {
       window._view.goTo({ target: MapImage.fullExtent });

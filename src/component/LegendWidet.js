@@ -12,7 +12,7 @@ export default function FeaturesService() {
           title: "الخريطه",
         },
         {
-          layer: window._featureLayer,
+          layer: window._survyPoint,
           title: "",
           ready: true,
           SymbolTableElementInfo: {
