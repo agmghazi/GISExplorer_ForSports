@@ -6,7 +6,7 @@ import Graphic from "esri/Graphic";
 
 export default function HierarchicalSearch() {
   // var HerarchicalSearchs = {};
-  var _stateFeatures, _countiesFeatures, _cityFeatures;
+  var _stateFeatures, _countiesFeatures, _cityFeatures, _BildingFeatures;
   var polygonSymbol = {
     type: "simple-fill", // autocasts as new SimpleFillSymbol()
     color: [51, 51, 204, 0.2],
@@ -74,7 +74,10 @@ export default function HierarchicalSearch() {
         //this for clean successfully
         while (ddlCounties.firstChild)
           ddlCounties.removeChild(ddlCounties.firstChild);
-        ddlCounties.disabled = false;
+        // ddlCounties.disabled = false;
+        // ddlCounties.style.display = "block";
+        ddlCounties.classList.remove("hiddenEl");
+        ddlCounties.classList.add("custom-select");
 
         results.features.map((feature) => {
           const name_a = feature.attributes.name_a;
@@ -119,7 +122,11 @@ export default function HierarchicalSearch() {
         _cityFeatures = results.features;
         //this for clean successfully
         while (ddlCity.firstChild) ddlCity.removeChild(ddlCity.firstChild);
-        ddlCity.disabled = false;
+        // ddlCity.disabled = false;
+        // ddlCity.style.display = "block";
+        ddlCity.classList.remove("hiddenEl");
+        ddlCity.classList.add("custom-select");
+
         results.features.map((feature) => {
           const admnuntarn = feature.attributes.admnuntarn;
           let opts = document.createElement("option");
@@ -155,14 +162,86 @@ export default function HierarchicalSearch() {
       content: document.querySelector("#app-search"),
     });
 
-    window._view.ui.add(HsearchExpand, {
-      position: "top-right",
-      index: 1,
+    // window._view.ui.add(HsearchExpand, {
+    //   position: "top-right",
+    //   index: 1,
+    // });
+    var $j = jQuery.noConflict();
+
+    $(function() {
+      $("#attributTabe")
+        .dialog({
+          // dialogClass: "alert",
+          maxWidth: 10,
+          // position: { my: "left top", at: "left bottom", of: button },
+          // maxHeight: 600,
+          autoOpen: false,
+          show: {
+            effect: "blind",
+            duration: 1000,
+          },
+          hide: {
+            effect: "explode",
+            duration: 1000,
+          },
+          width: 500,
+        })
+        .dialogExtend({
+          closable: true,
+          maximizable: true,
+          minimizable: true,
+          collapsable: true,
+          dblclick: "collapse",
+          titlebar: "transparent",
+          minimizeLocation: "right",
+          icons: {
+            close: "ui-icon-circle-close",
+            maximize: "ui-icon-circle-plus",
+            minimize: "ui-icon-circle-minus",
+            collapse: "ui-icon-triangle-1-s",
+            restore: "ui-icon-bullet",
+          },
+          load: function(evt, dlg) {
+            //   console.log(evt.type);
+          },
+          beforeCollapse: function(evt, dlg) {
+            //   console.log(evt.type);
+          },
+          beforeMaximize: function(evt, dlg) {
+            //   console.log(evt.type);
+          },
+          beforeMinimize: function(evt, dlg) {
+            //   console.log(evt.type);
+          },
+          beforeRestore: function(evt, dlg) {
+            //   console.log(evt.type);
+          },
+          collapse: function(evt, dlg) {
+            //   console.log(evt.type);
+          },
+          maximize: function(evt, dlg) {
+            //   console.log(evt.type);
+          },
+          minimize: function(evt, dlg) {
+            //   console.log(evt.type);
+          },
+          restore: function(evt, dlg) {
+            //   console.log(evt.type);
+          },
+        });
+      $("#toggleAttribute").on("click", function() {
+        $("#attributTabe").dialog("open");
+      });
     });
   }, []);
   return (
     <div>
-      <div className="input-group input-group-sm mb-4">
+      <div
+        className="input-group input-group-sm mb-4"
+        id="attributTabe"
+        title="جدول البيانات الوصفيه"
+        // hidden="hidden"
+      >
         <div className="input-group-prepend">
           <div id="app-search" className="esri-widget">
             <select
@@ -177,18 +256,21 @@ export default function HierarchicalSearch() {
               id="ddlCounties"
               className="esri-input"
               className="custom-select"
-              disabled
+              className="hiddenEl"
             ></select>
             <br />
             <select
               id="ddlCity"
               className="esri-input"
               className="custom-select"
-              disabled
+              className="hiddenEl"
             ></select>
           </div>
         </div>
       </div>
+      <button id="toggleAttribute">
+        <i className="fas fa-table"></i>
+      </button>
     </div>
   );
 }

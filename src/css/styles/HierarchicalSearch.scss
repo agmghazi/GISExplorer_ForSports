@@ -13,3 +13,32 @@
   text-align: center;
   font-size: 15px;
 }
+.input-group-prepend {
+  width: 10px;
+}
+
+.hiddenEl {
+  display: none;
+  // visibility: hidden;
+}
+
+/* .ui-dialog-titlebar {
+        background-color: red;
+      } */
+
+.ui-widget-header {
+  background-color: rgba(0, 34, 255, 0.04);
+}
+
+#attributTabe {
+  overflow: auto;
+  width: 5px;
+  height: 5px;
+  display: none;
+}
+
+#toggleAttribute {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+}
