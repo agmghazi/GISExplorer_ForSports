@@ -167,14 +167,21 @@ export default function HierarchicalSearch() {
     //   index: 1,
     // });
     var $j = jQuery.noConflict();
-
+    // https://www.tutorialspoint.com/jqueryui/jqueryui_dialog.htm
+    // https://jqueryui.com/position/
     $(function() {
       $("#attributTabe")
         .dialog({
           // dialogClass: "alert",
-          maxWidth: 10,
-          // position: { my: "left top", at: "left bottom", of: button },
+          // maxWidth: 4000,
           // maxHeight: 600,
+          // title: "Success",
+          position: {
+            my: "left top",
+            at: "center top",
+            // of: $("#toggleAttribute"),
+            collision: "flipfit fit",
+          },
           autoOpen: false,
           show: {
             effect: "blind",
@@ -184,11 +191,12 @@ export default function HierarchicalSearch() {
             effect: "explode",
             duration: 1000,
           },
-          width: 500,
+          width: 370,
+          // height: 300,
         })
         .dialogExtend({
           closable: true,
-          maximizable: true,
+          maximizable: false,
           minimizable: true,
           collapsable: true,
           dblclick: "collapse",
@@ -235,14 +243,14 @@ export default function HierarchicalSearch() {
     });
   }, []);
   return (
-    <div>
+    <>
       <div
         className="input-group input-group-sm mb-4"
         id="attributTabe"
-        title="جدول البيانات الوصفيه"
+        title="البحث الهرمى"
         // hidden="hidden"
       >
-        <div className="input-group-prepend">
+        <div className="input-group-prepend" id="masking">
           <div id="app-search" className="esri-widget">
             <select
               id="ddlStates"
@@ -271,6 +279,6 @@ export default function HierarchicalSearch() {
       <button id="toggleAttribute">
         <i className="fas fa-table"></i>
       </button>
-    </div>
+    </>
   );
 }

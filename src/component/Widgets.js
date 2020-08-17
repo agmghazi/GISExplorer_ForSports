@@ -4,7 +4,8 @@ import Compass from "esri/widgets/Compass";
 import ScaleBar from "esri/widgets/ScaleBar";
 import Expand from "esri/widgets/Expand";
 import Sketch from "esri/widgets/Sketch";
-import BasemapToggle from "esri/widgets/BasemapToggle";
+// import BasemapToggle from "esri/widgets/BasemapToggle";
+import BasemapGallery from "esri/widgets/BasemapGallery";
 import AreaMeasurement2D from "esri/widgets/AreaMeasurement2D";
 import DistanceMeasurement2D from "esri/widgets/DistanceMeasurement2D";
 import CoordinateConversion from "esri/widgets/CoordinateConversion";
@@ -34,14 +35,18 @@ export default function Widgets() {
       content: sketch,
       mode: "floating",
     });
-    const basemapToggle = new BasemapToggle({
+    // const basemapToggle = new BasemapToggle({
+    //   view: window._view,
+    //   nextBasemap: "satellite",
+    // });
+    const basemapGallery = new BasemapGallery({
       view: window._view,
-      nextBasemap: "satellite",
     });
+
     const basemapExpand = new Expand({
       expandIconClass: "esri-icon-basemap",
       view: window._view,
-      content: basemapToggle,
+      content: basemapGallery,
       expanded: false,
       expandTooltip: "الخرائط",
     });
