@@ -280,7 +280,7 @@ export default function HierarchicalSearch() {
       <input
         id="toggleAttribute"
         type="image"
-        src="https://img.icons8.com/fluent/48/000000/search.png"
+        src="https://img.icons8.com/pastel-glyph/40/000000/search--v2.png"
       />
     </>
   );

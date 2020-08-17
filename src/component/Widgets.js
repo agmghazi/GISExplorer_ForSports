@@ -9,7 +9,7 @@ import BasemapGallery from "esri/widgets/BasemapGallery";
 import AreaMeasurement2D from "esri/widgets/AreaMeasurement2D";
 import DistanceMeasurement2D from "esri/widgets/DistanceMeasurement2D";
 import CoordinateConversion from "esri/widgets/CoordinateConversion";
-import Bookmarks from "esri/widgets/Bookmarks";
+// import Bookmarks from "esri/widgets/Bookmarks";
 
 export default function Widgets() {
   React.useEffect(() => {
@@ -81,18 +81,19 @@ export default function Widgets() {
       mode: "floating",
       expanded: true,
     });
-    const bookmarks = new Bookmarks({
-      view: window._view,
-      // allows bookmarks to be added, edited, or deleted
-      editingEnabled: true,
-      bookmarks: [],
-    });
-    const BookmarksExpands = new Expand({
-      view: window._view,
-      content: bookmarks,
-      expanded: false,
-      expandTooltip: "حفظ الاماكن",
-    });
+
+    // const bookmarks = new Bookmarks({
+    //   view: window._view,
+    //   // allows bookmarks to be added, edited, or deleted
+    //   editingEnabled: true,
+    //   bookmarks: [],
+    // });
+    // const BookmarksExpands = new Expand({
+    //   view: window._view,
+    //   content: bookmarks,
+    //   expanded: false,
+    //   expandTooltip: "حفظ الاماكن",
+    // });
     window._view.ui.move([
       {
         component: "zoom",
@@ -142,11 +143,11 @@ export default function Widgets() {
         position: "bottom-right",
         index: 2,
       },
-      {
-        component: BookmarksExpands,
-        position: "top-left",
-        index: 6,
-      },
+      // {
+      // component: BookmarksExpands,
+      // position: "top-left",
+      // index: 6,
+      // },
     ]);
   });
   return <div></div>;

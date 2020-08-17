@@ -10,6 +10,7 @@ import LegendWidet from "./component/LegendWidet";
 import Screenshot from "./component/Screenshot";
 import SearchWidget from "./component/SearchWidget";
 import HierarchicalSearch from "./component/HierarchicalSearch";
+import Bookmarks from "./component/Bookmarks";
 
 const wrapper = document.getElementById("root");
 wrapper
@@ -24,6 +25,7 @@ wrapper
         <Screenshot />
         <SearchWidget />
         <HierarchicalSearch />
+        <Bookmarks />
       </>,
       wrapper
     )
