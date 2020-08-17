@@ -32,7 +32,7 @@ export default function App() {
   });
   return (
     <div>
-      <div id="mapView" style={{ width: "100vx", height: "100vh" }}></div>
+      <div id="mapView" style={{ width: "100vx", height: "97vh" }}></div>
     </div>
   );
 }

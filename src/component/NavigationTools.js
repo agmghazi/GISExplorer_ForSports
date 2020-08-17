@@ -114,20 +114,24 @@ export default function NavigationTools() {
         }
       });
     }
-    function displayCrosshairCursor() {
+
+    function displayZommOutCursor() {
       window._view &&
         window._view.container &&
         window._view.container.style &&
         "crosshair" !== window._view.container.style.cursor &&
-        (window._view.container.style.cursor = "crosshair");
+        (window._view.container.style.cursor =
+          "url('https://img.icons8.com/metro/26/000000/zoom-out.png'), auto");
     }
-    function displayPointerCursor() {
+    function displayZoomInCursor() {
       window._view &&
         window._view.container &&
         window._view.container.style &&
-        "pointer" !== window._view.container.style.cursor &&
-        (window._view.container.style.cursor = "pointer");
+        "crosshair" !== window._view.container.style.cursor &&
+        (window._view.container.style.cursor =
+          "url('https://img.icons8.com/material-outlined/26/000000/zoom-in.png'), auto");
     }
+
     function displayDefaultCursor() {
       window._view &&
         window._view.container &&
@@ -278,7 +282,7 @@ export default function NavigationTools() {
         disableViewPanning();
         window._view.graphics.removeAll();
         var action = draw.create("rectangle");
-        displayCrosshairCursor();
+        displayZoomInCursor();
         window._view.focus();
         action.on("vertex-add", drawRect);
         action.on("draw-complete", zoomIn);
@@ -291,7 +295,7 @@ export default function NavigationTools() {
         disableViewPanning();
         window._view.graphics.removeAll();
         var action = draw.create("rectangle");
-        displayCrosshairCursor();
+        displayZommOutCursor();
         window._view.focus();
         action.on("vertex-add", drawRect);
         action.on("draw-complete", zoomOut);
@@ -315,6 +319,16 @@ export default function NavigationTools() {
         index: 0,
       },
     ]);
+    // http://gcctech.org/csc/javascript/javascript_keycodes.htm
+    document.onkeydown = function(evt) {
+      evt = evt || window.event;
+      if (evt.keyCode == 27) {
+        removeCurrentSelTool();
+        enableViewPanning();
+        displayDefaultCursor();
+        draw.reset();
+      }
+    };
   });
   return (
     <div>
@@ -338,6 +352,7 @@ export default function NavigationTools() {
           alt="Pan Map"
           title="تحريك الخريطة"
           className="Navigationtool selected"
+          id="changeMouseHover"
           id="panmap"
         />
         <img
