@@ -80,6 +80,31 @@
     </script>
     <noscript> JavaScript is required in order to use this app </noscript>
     <div id="root"></div>
+
+    <!-- this code to loading spinner -->
+    <div id="loading"></div>
+    <script>
+      function onReady(callback) {
+        var intervalID = window.setInterval(checkReady, 1000);
+
+        function checkReady() {
+          if (document.getElementsByTagName("body")[0] !== undefined) {
+            window.clearInterval(intervalID);
+            callback.call(this);
+          }
+        }
+      }
+
+      function show(id, value) {
+        document.getElementById(id).style.display = value ? "block" : "none";
+      }
+
+      onReady(function() {
+        show("root", true);
+        show("loading", false);
+      });
+    </script>
+
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

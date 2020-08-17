@@ -111,3 +111,20 @@ header.top-nav {
 // height: -15px;
 // width: -15px;
 // }
+
+// this code to loading spinner
+#root {
+  display: none;
+}
+#loading {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://i.imgur.com/tCWon2S.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+}
