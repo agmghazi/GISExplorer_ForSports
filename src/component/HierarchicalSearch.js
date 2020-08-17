@@ -179,7 +179,7 @@ export default function HierarchicalSearch() {
           position: {
             my: "left top",
             at: "center top",
-            // of: $("#toggleAttribute"),
+            of: $("#toggleAttribute"),
             collision: "flipfit fit",
           },
           autoOpen: false,
@@ -189,7 +189,7 @@ export default function HierarchicalSearch() {
           },
           hide: {
             effect: "explode",
-            duration: 1000,
+            duration: 1200,
           },
           width: 370,
           // height: 300,
@@ -276,9 +276,12 @@ export default function HierarchicalSearch() {
           </div>
         </div>
       </div>
-      <button id="toggleAttribute">
-        <i className="fas fa-table"></i>
-      </button>
+
+      <input
+        id="toggleAttribute"
+        type="image"
+        src="https://img.icons8.com/fluent/48/000000/search.png"
+      />
     </>
   );
 }

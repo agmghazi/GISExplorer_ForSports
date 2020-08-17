@@ -198,14 +198,12 @@ export default function Screenshot() {
   return (
     <div>
       <div className="esri-widget">
-        <button
-          id="screenshotBtn"
-          className="action-button esri-widget"
-          aria-label="Select screenshot area"
+        <input
           title="لقطة الشاشه"
-        >
-          <i className="fas fa-camera  fa-lg"></i>
-        </button>
+          id="screenshotBtn"
+          type="image"
+          src="https://img.icons8.com/ios/50/000000/compact-camera.png"
+        />
       </div>
       <div className="container ">
         <div className="form-group ">
