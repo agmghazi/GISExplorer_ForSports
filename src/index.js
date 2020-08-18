@@ -11,6 +11,7 @@ import Screenshot from "./component/Screenshot";
 import SearchWidget from "./component/SearchWidget";
 import HierarchicalSearch from "./component/HierarchicalSearch";
 import Bookmarks from "./component/Bookmarks";
+import MapTarget from "./component/MapTarget";
 
 const wrapper = document.getElementById("root");
 wrapper
@@ -26,6 +27,7 @@ wrapper
         <SearchWidget />
         <HierarchicalSearch />
         <Bookmarks />
+        <MapTarget />
       </>,
       wrapper
     )

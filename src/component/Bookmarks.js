@@ -419,7 +419,7 @@ export default function FeaturesService() {
   // https://icons8.com/icons/set/zoom
   return (
     <div>
-      <div id="bookmarksDiv"></div>
+      <div id="bookmarksDiv" title="النقاط المرجعية"></div>
       <input
         id="bookmarksBtn"
         type="image"

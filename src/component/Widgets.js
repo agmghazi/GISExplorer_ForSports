@@ -9,6 +9,7 @@ import BasemapGallery from "esri/widgets/BasemapGallery";
 import AreaMeasurement2D from "esri/widgets/AreaMeasurement2D";
 import DistanceMeasurement2D from "esri/widgets/DistanceMeasurement2D";
 import CoordinateConversion from "esri/widgets/CoordinateConversion";
+// import Fullscreen from "esri/widgets/Fullscreen";
 // import Bookmarks from "esri/widgets/Bookmarks";
 
 export default function Widgets() {
@@ -39,6 +40,10 @@ export default function Widgets() {
     //   view: window._view,
     //   nextBasemap: "satellite",
     // });
+    // const fullscreen = new Fullscreen({
+    //   view: window._view,
+    // });
+
     const basemapGallery = new BasemapGallery({
       view: window._view,
     });
@@ -143,6 +148,11 @@ export default function Widgets() {
         position: "bottom-right",
         index: 2,
       },
+      // {
+      // component: fullscreen,
+      // position: "top-left",
+      // index: 6,
+      // },
       // {
       // component: BookmarksExpands,
       // position: "top-left",
