@@ -8,11 +8,12 @@ export default function App() {
   const layer = new GraphicsLayer();
   React.useEffect(() => {
     const map = new ArcGISMap({
-      basemap: "topo",
+      basemap: "streets",
       layers: [layer],
     });
 
     const view = new MapView({
+      id: "viewMain1",
       map,
       container: "mapView",
       zoom: 10,
@@ -27,12 +28,16 @@ export default function App() {
       },
     });
     window._view = view;
+    window._viewMain1 = view.id;
     window._map = map;
     window._layer = layer;
   });
   return (
     <div>
-      <div id="mapView" style={{ width: "100vx", height: "97vh" }}></div>
+      <div
+        id="mapView"
+        style={{ width: "100vx", height: "97vh", zIndex: "-1" }}
+      ></div>
     </div>
   );
 }

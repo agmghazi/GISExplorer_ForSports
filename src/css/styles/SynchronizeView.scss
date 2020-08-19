@@ -1,0 +1,42 @@
+#overviewSynchronize {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 300px;
+  height: 200px;
+  border: 1px solid black;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#SynchronizeDiv {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 2;
+}
+.CsutomWHSync {
+  width: 0px;
+  height: 0px;
+}
+#overviewSynchronize .esri-view .esri-view-surface {
+  width: 300px;
+  height: 200px;
+}
+#gooleStreet {
+  z-index: 2;
+  position: absolute;
+  font-size: 12px;
+  border: none;
+  bottom: 1px;
+  left: 80px;
+  font-weight: bold;
+}
+#googleSatellite {
+  z-index: 2;
+  position: absolute;
+  font-size: 12px;
+  border: none;
+  bottom: 1px;
+  left: 1px;
+  font-weight: bold;
+}

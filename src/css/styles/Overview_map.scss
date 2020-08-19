@@ -1,0 +1,20 @@
+#overviewDiv {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  width: 300px;
+  height: 200px;
+  border: 1px solid black;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#extentDiv {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 2;
+}
+.CsutomWH .esri-view .esri-view-surface {
+  width: 300px;
+  height: 200px;
+}

@@ -13,6 +13,8 @@ import HierarchicalSearch from "./component/HierarchicalSearch";
 import Bookmarks from "./component/Bookmarks";
 import MapTarget from "./component/MapTarget";
 import FeaturesTable from "./component/FeaturesTable";
+import Overview_map from "./component/Overview_map";
+import SynchronizeView from "./component/SynchronizeView";
 
 const wrapper = document.getElementById("root");
 wrapper
@@ -30,6 +32,8 @@ wrapper
         <Bookmarks />
         <MapTarget />
         <FeaturesTable />
+        <Overview_map />
+        <SynchronizeView />
       </>,
       wrapper
     )
