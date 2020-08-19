@@ -31,6 +31,17 @@ export default function MapTarget() {
       ).innerHTML = `latitude: ${lat} longitude: ${lon} `;
     });
   });
+
+  //fire when select item from any feature layer
+  // window._view.on("click", function(event) {
+  // window._view.hitTest(event.screenPoint).then(function(response) {
+  // var graphics = response.results;
+  // graphics.forEach(function(graphic) {
+  // console.log(graphic);
+  // });
+  // });
+  // });
+
   return (
     <div>
       <label id="Zooming"></label>

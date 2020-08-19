@@ -39,6 +39,22 @@ export default function HierarchicalSearch() {
         ddlStates.appendChild(opt);
       });
     });
+    queryTask
+      .executeForCount({
+        // autocasts as new Query()
+        where: "1=1",
+      })
+      .then(
+        function(count) {
+          // console.log(count, " features matched the input query --first");
+          document.querySelector(
+            ".lblStates"
+          ).innerHTML = `عدد الحقول المختارة: ${count} `;
+        },
+        function(error) {
+          console.log(error); // Will print error in console if unsupported layers are used
+        }
+      );
 
     document.querySelector("#ddlStates").onchange = () => {
       const name_arabi = document.querySelector("#ddlStates").value;
@@ -87,6 +103,22 @@ export default function HierarchicalSearch() {
           ddlCounties.appendChild(opt);
         });
       });
+      queryTaskS
+        .executeForCount({
+          // autocasts as new Query()
+          where: "1=1",
+        })
+        .then(
+          function(count) {
+            // console.log(count, " features matched the input query--socond");
+            document.querySelector(
+              ".lblCounties"
+            ).innerHTML = `عدد الحقول المختارة: ${count} `;
+          },
+          function(error) {
+            console.log(error); // Will print error in console if unsupported layers are used
+          }
+        );
     };
 
     document.querySelector("#ddlCounties").onchange = () => {
@@ -135,6 +167,22 @@ export default function HierarchicalSearch() {
           ddlCity.appendChild(opts);
         });
       });
+      cityTask
+        .executeForCount({
+          // autocasts as new Query()
+          where: `zone = '${name_a}'`,
+        })
+        .then(
+          function(count) {
+            // console.log(count, " features matched the input query--third");
+            document.querySelector(
+              ".lblCity"
+            ).innerHTML = `عدد الحقول المختارة: ${count} `;
+          },
+          function(error) {
+            console.log(error); // Will print error in console if unsupported layers are used
+          }
+        );
     };
     document.querySelector("#ddlCity").onchange = () => {
       const admnuntarn = document.querySelector("#ddlCity").value;
@@ -251,28 +299,25 @@ export default function HierarchicalSearch() {
         // hidden="hidden"
       >
         <div className="input-group-prepend" id="masking">
-          <div id="app-search" className="esri-widget">
-            <select
-              id="ddlStates"
-              className="esri-input"
-              className="custom-select"
-            >
+          <div id="app-search">
+            <select id="ddlStates" className="custom-select">
               <option value="0">اختر اسم المدينة</option>
             </select>
+            <label className="lblStates"></label>
             <br />
             <select
               id="ddlCounties"
-              className="esri-input"
               className="custom-select"
               className="hiddenEl"
             ></select>
+            <label className="lblCounties"></label>
             <br />
             <select
               id="ddlCity"
-              className="esri-input"
               className="custom-select"
               className="hiddenEl"
             ></select>
+            <label className="lblCity"></label>
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@ import SearchWidget from "./component/SearchWidget";
 import HierarchicalSearch from "./component/HierarchicalSearch";
 import Bookmarks from "./component/Bookmarks";
 import MapTarget from "./component/MapTarget";
+import FeaturesTable from "./component/FeaturesTable";
 
 const wrapper = document.getElementById("root");
 wrapper
@@ -28,6 +29,7 @@ wrapper
         <HierarchicalSearch />
         <Bookmarks />
         <MapTarget />
+        <FeaturesTable />
       </>,
       wrapper
     )

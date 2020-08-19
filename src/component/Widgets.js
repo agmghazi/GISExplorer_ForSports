@@ -84,7 +84,7 @@ export default function Widgets() {
       view: window._view,
       content: CoordinateWidget,
       mode: "floating",
-      expanded: true,
+      expanded: false,
     });
 
     // const bookmarks = new Bookmarks({
