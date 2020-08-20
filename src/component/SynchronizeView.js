@@ -143,12 +143,12 @@ export default function Overview_map() {
     synchronizeViews([window._view, mapViewSync]);
 
     $(".SyncOption").click(function() {
-      $(".SyncPopup").toggleClass("SyncHide");
+      $(".SyncPopup, .overviewSynchronize").toggleClass("SyncHide");
     });
   });
   return (
-    <div id="overviewSynchronize">
-      <div className="SyncPopup SyncArrow-up SyncHide">
+    <div>
+      <div className="SyncPopup SyncArrow-up SyncHide overviewSynchronize">
         <div
           id="SynchronizeDiv"
           style={{ width: "300px", height: "200px" }}

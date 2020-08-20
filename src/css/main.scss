@@ -32,6 +32,7 @@ $include_Zoom: true !default;
 
 @import "~arcgis-js-api/themes/light/main.scss";
 @import "index";
+@import "./styles/App.scss";
 @import "./styles/Screenshot.scss";
 @import "./styles/navigationTools.scss";
 @import "./styles/HierarchicalSearch.scss";

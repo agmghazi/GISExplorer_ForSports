@@ -22,16 +22,44 @@ export default function App() {
         dockEnabled: true,
         dockOptions: {
           breakpoint: false,
-          buttonEnabled: false,
+          buttonEnabled: true,
           position: "top-center",
         },
       },
     });
+    view.popup.autoOpenEnabled = false;
     window._view = view;
     window._viewMain1 = view.id;
     window._map = map;
     window._layer = layer;
-    // style={{ width: "100vx", height: "97vh", zIndex: "-1" }}
+
+    function displayIdentifyCursor() {
+      window._view &&
+        window._view.container &&
+        window._view.container.style &&
+        "crosshair" !== window._view.container.style.cursor &&
+        (window._view.container.style.cursor =
+          "url('https://img.icons8.com/windows/26/000000/question-mark.png'), auto");
+    }
+    $(".identifyPopup").click(function() {
+      view.popup.autoOpenEnabled = true;
+      displayIdentifyCursor();
+    });
+
+    function identifyDisplayDefaultCursor() {
+      window._view &&
+        window._view.container &&
+        window._view.container.style &&
+        "default" !== window._view.container.style.cursor &&
+        (window._view.container.style.cursor = "default");
+    }
+
+    window._view.on("key-down", function(event) {
+      if (event.key == "Shift") {
+        window._view.popup.autoOpenEnabled = false;
+        identifyDisplayDefaultCursor();
+      }
+    });
   });
   return (
     <div>
@@ -46,6 +74,13 @@ export default function App() {
           margin: "0px",
         }}
       ></div>
+      <input
+        className="identifyPopup"
+        type="image"
+        src="https://img.icons8.com/windows/40/000000/high-importance.png"
+      />
+
+      <div className="identifyDiv"></div>
     </div>
   );
 }

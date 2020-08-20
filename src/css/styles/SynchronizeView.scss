@@ -1,4 +1,4 @@
-#overviewSynchronize {
+.overviewSynchronize {
   position: absolute;
   top: -5px;
   right: 158px;
@@ -16,14 +16,10 @@
   width: 0px;
   height: 0px;
 }
-#overviewSynchronize .esri-view .esri-view-surface {
+.overviewSynchronize .esri-view .esri-view-surface {
   width: 300px;
   height: 200px;
   border: 1px solid #3a54d8;
-}
-
-.overviewSynchronize .esri-view .esri-view-root {
-  position: unset;
 }
 
 #gooleStreet {
@@ -31,7 +27,7 @@
   position: absolute;
   font-size: 12px;
   border: none;
-  bottom: -42px;
+  bottom: -9px;
   left: 205px;
   font-weight: bold;
   width: 94px;
@@ -41,7 +37,7 @@
   position: absolute;
   font-size: 12px;
   border: none;
-  bottom: -42px;
+  bottom: -9px;
   left: 105px;
   font-weight: bold;
   width: 94px;
@@ -83,8 +79,9 @@
   text-align: center;
   position: fixed;
   cursor: pointer;
-  top: 10px;
+  top: 13px;
+  right: 412px;
 }
 .SyncHide {
-  display: none;
+  visibility: hidden;
 }
