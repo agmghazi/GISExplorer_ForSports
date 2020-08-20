@@ -1,20 +1,67 @@
 #overviewDiv {
   position: absolute;
-  bottom: 12px;
-  left: 12px;
+  top: 54px;
+  left: 210px;
   width: 300px;
   height: 200px;
-  border: 1px solid black;
   z-index: 1;
-  overflow: hidden;
 }
-
 #extentDiv {
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   z-index: 2;
 }
+
 .CsutomWH .esri-view .esri-view-surface {
   width: 300px;
   height: 200px;
+  border: 1px solid #3a54d8;
+}
+
+.overviewpoup {
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  top: 10px;
+  left: 210px;
+}
+
+.overviewArrow-up:before {
+  content: "";
+  height: 0;
+  position: absolute;
+  width: 0;
+}
+
+.overviewArrow-up:before {
+  border-bottom: 18px solid #3a54d8;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  left: 18px;
+  top: -15px;
+}
+
+.overviewpoup {
+  position: absolute;
+}
+
+.overviewOption {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  position: fixed;
+  cursor: pointer;
+  top: 10px;
+  left: 210px;
+}
+.overviewhide {
+  display: none;
+}
+
+.CsutomWH .esri-view .esri-view-root {
+  position: unset;
 }

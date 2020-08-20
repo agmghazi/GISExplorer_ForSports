@@ -49,7 +49,7 @@ export default function Overview_map() {
       });
 
     // Remove the default widgets
-    // mapViewSync.ui.components = [];
+    mapViewSync.ui.components = [];
 
     /**
      * utility method that synchronizes the viewpoint of a view to other views
@@ -141,19 +141,28 @@ export default function Overview_map() {
 
     // bind the views
     synchronizeViews([window._view, mapViewSync]);
+
+    $(".SyncOption").click(function() {
+      $(".SyncPopup").toggleClass("SyncHide");
+    });
   });
   return (
     <div id="overviewSynchronize">
-      <div
-        id="SynchronizeDiv"
-        style={{ width: "300px", height: "200px" }}
-      ></div>
-      <button id="googleSatellite" className="btn btn-primary">
-        Satellite
-      </button>
-      <button id="gooleStreet" className="btn btn-primary">
-        Street
-      </button>
+      <div className="SyncPopup SyncArrow-up SyncHide">
+        <div
+          id="SynchronizeDiv"
+          style={{ width: "300px", height: "200px" }}
+        ></div>
+        <button id="googleSatellite" className="btn btn-primary">
+          المصور الجوى
+        </button>
+        <button id="gooleStreet" className="btn btn-primary">
+          شبكة الطرق
+        </button>
+      </div>
+      <div className="SyncOption">
+        <img src="https://img.icons8.com/windows/40/000000/google-earth.png" />
+      </div>
     </div>
   );
 }

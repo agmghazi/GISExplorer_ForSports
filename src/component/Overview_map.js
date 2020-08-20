@@ -70,11 +70,19 @@ export default function Overview_map() {
         extentgraphic.geometry = extent;
       });
     }
+    $(".overviewOption").click(function() {
+      $(".overviewpoup").toggleClass("overviewhide");
+    });
   });
   return (
     <div className="CsutomWH">
-      <div id="overviewDiv">
-        <div id="extentDiv"></div>
+      <div id="extentDiv"></div>
+      <div
+        id="overviewDiv"
+        className="overviewpoup overviewArrow-up overviewhide"
+      ></div>
+      <div className="overviewOption">
+        <img src="https://img.icons8.com/windows/40/000000/treasure-map.png" />
       </div>
     </div>
   );

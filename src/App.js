@@ -31,12 +31,20 @@ export default function App() {
     window._viewMain1 = view.id;
     window._map = map;
     window._layer = layer;
+    // style={{ width: "100vx", height: "97vh", zIndex: "-1" }}
   });
   return (
     <div>
       <div
         id="mapView"
-        style={{ width: "100vx", height: "97vh", zIndex: "-1" }}
+        style={{
+          width: "100%",
+          height: "100%",
+          zIndex: "-1",
+          position: "fixed",
+          padding: "0px",
+          margin: "0px",
+        }}
       ></div>
     </div>
   );
