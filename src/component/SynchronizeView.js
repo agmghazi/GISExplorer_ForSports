@@ -161,7 +161,7 @@ export default function Overview_map() {
         </button>
       </div>
       <div className="SyncOption">
-        <img src="https://img.icons8.com/windows/40/000000/google-earth.png" />
+        <img src="https://img.icons8.com/windows/30/000000/google-earth.png" />
       </div>
     </div>
   );

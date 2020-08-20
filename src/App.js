@@ -77,7 +77,7 @@ export default function App() {
       <input
         className="identifyPopup"
         type="image"
-        src="https://img.icons8.com/windows/40/000000/high-importance.png"
+        src="https://img.icons8.com/windows/30/000000/high-importance.png"
       />
 
       <div className="identifyDiv"></div>

@@ -32,9 +32,13 @@
   cursor: crosshair;
 }
 #screenshotBtn {
-  width: 32px;
-  height: 34px;
+  width: 29px;
+  height: 32px;
 }
+#screenshotBtn :hover {
+  background-color: white;
+}
+
 // .action-button {
 //   padding: 0.6em;
 //   border: 1px solid #0079c1;

@@ -82,7 +82,7 @@ export default function Overview_map() {
         className="overviewpoup overviewArrow-up overviewhide"
       ></div>
       <div className="overviewOption">
-        <img src="https://img.icons8.com/windows/40/000000/treasure-map.png" />
+        <img src="https://img.icons8.com/windows/30/000000/treasure-map.png" />
       </div>
     </div>
   );

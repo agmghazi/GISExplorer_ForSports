@@ -11,6 +11,8 @@
 }
 #Navigationtools {
   text-align: center;
+  border-radius: 80%;
+  color: currentColor;
 }
 .tool {
   padding-top: 3px;
@@ -20,17 +22,26 @@
 .Navigationtool.disabled:hover {
   opacity: 0.6;
   pointer-events: none;
+  border-radius: 80%;
+  color: currentColor;
+  background-color: white;
 }
 
 .Navigationtool:hover,
 .Navigationtool.selected:hover {
-  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 90%;
+  color: currentColor;
+  background-color: white;
 }
 .Navigationtool.selected {
-  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 80%;
+  color: currentColor;
+  background-color: white;
 }
 .Navigationtool {
   height: 20px;
   width: 20px;
   margin: 0.3em;
+  border-radius: 80%;
+  color: currentColor;
 }

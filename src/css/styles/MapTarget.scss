@@ -1,13 +1,16 @@
 #Zooming {
   font-size: 10px;
-  position: relative;
-  bottom: -689px;
+  position: fixed;
+  bottom: -10px;
   left: 390px;
 }
 
 #cordinate {
   font-size: 10px;
-  position: relative;
-  bottom: -689px;
+  position: fixed;
+  bottom: -10px;
   left: 485px;
+}
+.hideFromMap {
+  position: fixed;
 }

@@ -43,7 +43,7 @@ export default function MapTarget() {
   // });
 
   return (
-    <div>
+    <div className="hideFromMap">
       <label id="Zooming"></label>
       <label id="cordinate"></label>
     </div>

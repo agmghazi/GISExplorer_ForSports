@@ -175,7 +175,7 @@ export default function NavigationTools() {
     function zoomIn(evt) {
       draw.reset();
       window._view.graphics.removeAll();
-      var action = draw.create("rectangle");
+      var action = draw.create("circle");
       window._view.focus();
       action.on("vertex-add", drawRect);
       action.on("draw-complete", zoomIn);
@@ -193,7 +193,7 @@ export default function NavigationTools() {
       var vertices = evt.vertices;
       draw.reset();
       window._view.graphics.removeAll();
-      var action = draw.create("rectangle");
+      var action = draw.create("circle");
       window._view.focus();
       action.on("vertex-add", drawRect);
       action.on("draw-complete", zoomOut);
@@ -281,7 +281,7 @@ export default function NavigationTools() {
         removeCurrentSelTool();
         disableViewPanning();
         window._view.graphics.removeAll();
-        var action = draw.create("rectangle");
+        var action = draw.create("circle");
         displayZoomInCursor();
         window._view.focus();
         action.on("vertex-add", drawRect);
@@ -294,7 +294,7 @@ export default function NavigationTools() {
         removeCurrentSelTool();
         disableViewPanning();
         window._view.graphics.removeAll();
-        var action = draw.create("rectangle");
+        var action = draw.create("circle");
         displayZommOutCursor();
         window._view.focus();
         action.on("vertex-add", drawRect);
