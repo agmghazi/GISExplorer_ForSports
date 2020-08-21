@@ -15,13 +15,14 @@ import MapTarget from "./component/MapTarget";
 import FeaturesTable from "./component/FeaturesTable";
 import Overview_map from "./component/Overview_map";
 import SynchronizeView from "./component/SynchronizeView";
+import BasemapGallery from "./component/BasemapGallery";
 
 const wrapper = document.getElementById("root");
 wrapper
   ? ReactDOM.render(
       <>
-        <App />
         <FeaturesService />
+        <App />
         <Widgets />
         <NavigationTools />
         <PrintWidget />
@@ -34,6 +35,7 @@ wrapper
         <FeaturesTable />
         <Overview_map />
         <SynchronizeView />
+        <BasemapGallery />
       </>,
       wrapper
     )

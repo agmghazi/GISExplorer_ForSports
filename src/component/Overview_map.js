@@ -14,7 +14,7 @@ export default function Overview_map() {
     });
 
     // Create the MapView for overview map
-    let mapView = new MapView({
+    let mapViewOver = new MapView({
       container: "overviewDiv",
       map: overviewMap,
       //to false ctrl+D  --rotation
@@ -27,9 +27,9 @@ export default function Overview_map() {
     });
 
     // Remove the default widgets
-    mapView.ui.components = [];
+    mapViewOver.ui.components = [];
 
-    mapView.when(function() {
+    mapViewOver.when(function() {
       window._view.when(function() {
         setup();
       });
@@ -44,19 +44,19 @@ export default function Overview_map() {
           outline: null,
         },
       });
-      mapView.graphics.add(extentgraphic);
+      mapViewOver.graphics.add(extentgraphic);
       watchUtils.init(window._view, "extent", function(extent) {
         // Sync the overview map location
         if (window._view.stationary) {
-          mapView
+          mapViewOver
             .goTo({
               center: window._view.center,
               scale:
                 window._view.scale *
                 2 *
                 Math.max(
-                  window._view.width / mapView.width,
-                  window._view.height / mapView.height
+                  window._view.width / mapViewOver.width,
+                  window._view.height / mapViewOver.height
                 ),
             })
             .catch(function(error) {

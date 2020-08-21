@@ -12,13 +12,13 @@ export default function Overview_map() {
   React.useEffect(() => {
     GoogleMapStreets = new WebMap({
       portalItem: {
-        id: "42d09892ed6d48489d1c8d62abf389e7",
+        id: "1de2683cffdb44259c556b83a7a71ebd",
       },
     });
 
     GoogleMapsSatellite = new WebMap({
       portalItem: {
-        id: "755df83295c54ccf8266e0a6b694d8ae",
+        id: "c82f2a5a424b4a41981a7f09530273a5",
       },
     });
 

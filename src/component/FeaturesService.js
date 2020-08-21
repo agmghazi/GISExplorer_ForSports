@@ -52,14 +52,16 @@ export default function FeaturesService() {
       popupTemplate,
       renderer: featureLayerSymbol,
     });
-    window._survyPoint = survyPoint;
 
     const MapImage = new MapImageLayer({
       url: "http://localhost:6080/arcgis/rest/services/DataWorker_H/MapServer",
     });
-    window._MapImage = MapImage;
 
-    window._map.addMany([MapImage, survyPoint]);
+    // window._topoMap.addMany([window._MapImage, survyPoint]);
+    // window._satelliteMap.addMany([MapImage, survyPoint]);
+    // window._streetMap.addMany([MapImage, survyPoint]);
+    window._survyPoint = survyPoint;
+    window._MapImage = MapImage;
 
     MapImage.when(() => {
       window._view.goTo({ target: MapImage.fullExtent });

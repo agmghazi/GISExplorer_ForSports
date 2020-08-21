@@ -5,16 +5,48 @@ import GraphicsLayer from "esri/layers/GraphicsLayer";
 import React from "react";
 
 export default function App() {
+  let topoMap;
+  let streetMap;
+  let satelliteMap;
+  let hybridMap;
+  let terrainMap;
+  let grayMap;
+  let darkGrayMap;
+  let oceansMap;
+  let nationalGeographicMap;
+  let osmMap;
+  let darkGrayVectorMap;
+  let grayVectorMap;
+  let streetsNavigationVectorMap;
+  let streetsReliefVectorMap;
+  let streetsNightVectorMap;
+  let topoVectorMap;
+  let streetsVectorMap;
+
+  let view;
+  let lastLanConfig;
+  let lastLongConfig;
+  let lastZoomConfig;
+
   const layer = new GraphicsLayer();
   React.useEffect(() => {
-    const map = new ArcGISMap({
+    topoMap = new ArcGISMap({
+      basemap: "topo",
+      layers: [layer, window._survyPoint, window._MapImage],
+    });
+
+    streetMap = new ArcGISMap({
       basemap: "streets",
       layers: [layer],
     });
+    satelliteMap = new ArcGISMap({
+      basemap: "satellite",
+      layers: [layer],
+    });
 
-    const view = new MapView({
+    view = new MapView({
       id: "viewMain1",
-      map,
+      map: topoMap,
       container: "mapView",
       zoom: 10,
       center: [50.03602559770744, 26.38306796977232], // longitude, latitude
@@ -30,7 +62,18 @@ export default function App() {
     view.popup.autoOpenEnabled = false;
     window._view = view;
     window._viewMain1 = view.id;
-    window._map = map;
+    lastLanConfig = view.center.latitude;
+    lastLongConfig = view.center.longitude;
+    lastZoomConfig = view.zoom;
+
+    window._lastLanConfig = lastLanConfig;
+    window._lastLongConfig = lastLongConfig;
+    window._lastZoomConfig = lastZoomConfig;
+
+    window._topoMap = topoMap;
+    window._streetMap = streetMap;
+    window._satelliteMap = satelliteMap;
+
     window._layer = layer;
 
     function displayIdentifyCursor() {
