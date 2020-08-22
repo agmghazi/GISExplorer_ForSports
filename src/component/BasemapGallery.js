@@ -58,6 +58,21 @@ export default function BasemapGallery() {
     $(".BasemapOption").click(function() {
       $(".BasemapPopup, .BasemapOverview").toggleClass("BasemapHide");
     });
+
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("BasemapDiv");
+    var btns = header.getElementsByClassName("Selimg");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("imActive");
+        current[0].className = current[0].className.replace(" imActive", "");
+        this.className += " imActive";
+
+        var current = document.getElementsByClassName("imActive");
+        current[0].className = current[0].className.replace(" imActive", "");
+        this.className += " imActive";
+      });
+    }
   });
 
   return (
@@ -66,26 +81,38 @@ export default function BasemapGallery() {
         <div id="BasemapDiv">
           <div className="EXtSatalitteDiv">
             <div id="EXtSatalitte">
-              <img src="../src\assets\images\BasemapsPic\esri_maps\satellite.jpg" />
+              <img
+                src="../src\assets\images\BasemapsPic\esri_maps\satellite.jpg"
+                className="EXtSatalitteDivImg Selimg"
+              />
             </div>
-            <label>مرئية فضائية</label>
+            <label>قمر صناعى</label>
           </div>
           <div className="EXtTopoDiv">
             <div id="EXtTopo">
-              <img src="../src\assets\images\BasemapsPic\esri_maps\topo.jpg" />
+              <img
+                src="../src\assets\images\BasemapsPic\esri_maps\topo.jpg"
+                className=" EXtTopoDivImg Selimg imActive"
+              />
             </div>
             <label>طبوجرافى</label>
           </div>
           <div className="EXtSreetDiv">
             <div id="EXtSreet">
-              <img src="../src\assets\images\BasemapsPic\esri_maps\streets.jpg" />
+              <img
+                src="../src\assets\images\BasemapsPic\esri_maps\streets.jpg"
+                className=" EXtSreetDivImg Selimg "
+              />
             </div>
             <label>شوارع</label>
           </div>
         </div>
       </div>
       <div className="BasemapOption">
-        <img src="https://img.icons8.com/windows/30/000000/google-earth.png" />
+        <img
+          src="https://img.icons8.com/windows/30/000000/google-earth.png"
+          className="Selimg"
+        />
       </div>
     </div>
   );

@@ -74,7 +74,7 @@
 }
 
 .BasemapArrow-up:before {
-  border-bottom: 14px solid aquamarine;
+  border-bottom: 14px solid #3a54d8;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   right: 610px;
@@ -100,83 +100,156 @@
 }
 .EXtSatalitteDiv {
   width: 68px;
-  background-color: aquamarine;
+  background-color: white;
   z-index: 2;
   position: absolute;
   left: 165px;
   height: 101px;
 }
-.EXtSatalitteDiv img {
-  height: 96px;
+.EXtSatalitteDivImg {
+  height: 83px;
   width: 64px;
   top: 3px;
   position: relative;
   z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+  // filter: blur(1px);
 }
+.EXtSatalitteDivImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
 .EXtSatalitteDiv label {
-  height: 21px;
-  width: 36px;
-  font-size: 14px;
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
   position: relative;
   z-index: 1;
-  top: -72px;
-  left: -3px;
+  top: -4px;
+  left: 0px;
   color: black;
-  font-weight: bold;
+  font-weight: unset;
 }
 
 .EXtTopoDiv {
   width: 68px;
-  background-color: aquamarine;
+  background-color: white;
   z-index: 2;
   position: absolute;
   left: 89px;
   height: 101px;
 }
 
-.EXtTopoDiv img {
-  height: 96px;
+.EXtTopoDivImg {
+  height: 83px;
   width: 64px;
   top: 3px;
   position: relative;
   z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
 }
+.EXtTopoDivImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
 .EXtTopoDiv label {
-  height: 21px;
-  width: 46px;
-  font-size: 14px;
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
   position: relative;
   z-index: 1;
-  top: -72px;
-  left: -5px;
+  top: -6px;
+  left: 0px;
   color: black;
-  font-weight: bold;
+  font-weight: unset;
 }
 
 .EXtSreetDiv {
   width: 68px;
-  background-color: aquamarine;
+  background-color: white;
   z-index: 2;
   position: absolute;
   left: 9px;
   height: 101px;
 }
 
-.EXtSreetDiv img {
-  height: 96px;
+.EXtSreetDivImg {
+  height: 83px;
   width: 64px;
   top: 3px;
   position: relative;
   z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
 }
+
+.EXtSreetDivImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
 .EXtSreetDiv label {
-  height: 21px;
-  width: 36px;
-  font-size: 14px;
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
   position: relative;
   z-index: 1;
-  top: -72px;
-  left: -3px;
+  top: -6px;
+  left: 0px;
   color: black;
-  font-weight: bold;
+  font-weight: unset;
+}
+// <span className="BaseCheckmark">
+// <div className="BaseCheckmark_circle"></div>
+// <div className="BaseCheckmark_stem"></div>
+// <div className="BaseCheckmark_kick"></div>
+// </span>
+
+// .BaseCheckmark {
+//   display: inline-block;
+//   width: 22px;
+//   height: 22px;
+//   -ms-transform: rotate(45deg); /* IE 9 */
+//   -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+//   transform: rotate(45deg);
+//   position: fixed;
+// }
+
+// .BaseCheckmark_circle {
+//   position: fixed;
+//   width: 22px;
+//   height: 22px;
+//   background-color: green;
+//   border-radius: 11px;
+//   left: -65px;
+//   top: -8px;
+// }
+
+// .BaseCheckmark_stem {
+//   position: fixed;
+//   width: 3px;
+//   height: 10px;
+//   background-color: #fff;
+//   left: -54px;
+//   top: -3px;
+// }
+
+// .BaseCheckmark_kick {
+//   position: fixed;
+//   width: 3px;
+//   height: 8px;
+//   background-color: #fff;
+//   left: -57px;
+//   top: 1px;
+//   transform: rotate(-70deg);
+// }
+
+.imActive {
+  filter: drop-shadow(2px 4px 6px black);
+  border-top-color: red;
+  border-bottom-color: red;
 }
