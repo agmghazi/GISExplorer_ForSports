@@ -9,21 +9,46 @@ export default function FeaturesService() {
       var graphic, attributes, content;
       graphic = feature.graphic;
       attributes = graphic.attributes;
-      let date = new Date(attributes.DateCreated).toLocaleDateString();
+      // let date = new Date(attributes.DateCreated).toLocaleDateString();
       content =
-        "رقم النقطه:- " +
-        attributes.point_numb +
+        "الإسم:- " +
+        attributes.Name +
         "</br>" +
-        " موقع النقطه:-" +
-        attributes.Point_Posi +
+        " حالة الممتلك:-" +
+        attributes.LandType +
         "</br>" +
-        "المعرف الجغرافى:-" +
-        '<img  src="' +
-        attributes.Zone1 +
-        '" alt="" height="30" width="92"  />';
+        "صور فوتوغرافيه للموقع:-" +
+        '<a  href="' +
+        attributes.ImagesAttach +
+        '" target="_blank" style="color:red">مشاهدة وتحميل </a>' +
+        "</br>" +
+        "الرفع المساحي للموقع:-" +
+        '<a  href="' +
+        attributes.SiteAttach +
+        '" target="_blank" style="color:red">مشاهدة وتحميل </a>' +
+        "</br>" +
+        "الكروكي المساحي للموقع:-" +
+        '<a  href="' +
+        attributes.SurveyAttach +
+        '" target="_blank" style="color:red">مشاهدة وتحميل </a>' +
+        "</br>" +
+        "وثائق الملكية:-" +
+        '<a  href="' +
+        attributes.AdminAttach +
+        '" target="_blank" style="color:red">مشاهدة وتحميل </a>' +
+        "</br>" +
+        "التقرير العقاري:-" +
+        '<a  href="' +
+        attributes.ReportAttach +
+        '" target="_blank" style="color:red">مشاهدة وتحميل </a>' +
+        "</br>";
 
       return content;
     }
+    // "الصور:-" +
+    // '<img  src="' +
+    // attributes.Zone1 +
+    // '" alt="" height="30" width="92"  />';
 
     const popupTemplate = {
       title: "Zone: {Zone}",
@@ -36,7 +61,7 @@ export default function FeaturesService() {
         type: "simple-marker",
         style: "square",
         color: "blue",
-        size: "1px", // pixels
+        size: "25px", // pixels
         outline: {
           // autocasts as new SimpleLineSymbol()
           color: [255, 255, 0],
@@ -47,14 +72,14 @@ export default function FeaturesService() {
 
     const survyPoint = new FeatureLayer({
       url:
-        "http://localhost:6080/arcgis/rest/services/DataWorker_H/FeatureServer/5",
+        "http://93.112.6.225/arcgis/rest/services/MapServiceTest/FeatureServer/257",
       outFields: ["*"],
       popupTemplate,
       renderer: featureLayerSymbol,
     });
 
     const MapImage = new MapImageLayer({
-      url: "http://localhost:6080/arcgis/rest/services/DataWorker_H/MapServer",
+      url: "http://93.112.6.225/arcgis/rest/services/MapServiceTest/MapServer",
     });
 
     // window._topoMap.addMany([window._MapImage, survyPoint]);

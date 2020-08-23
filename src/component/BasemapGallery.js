@@ -723,7 +723,7 @@ export default function BasemapGallery() {
       </div>
       <div className="BasemapOption">
         <img
-          src="https://img.icons8.com/windows/30/000000/google-earth.png"
+          src="https://img.icons8.com/wired/30/000000/map.png"
           className="Selimg"
         />
       </div>

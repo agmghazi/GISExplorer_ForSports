@@ -181,6 +181,10 @@ export default function App() {
       view.popup.autoOpenEnabled = true;
       displayIdentifyCursor();
     });
+    $(".identifyPopup").dblclick(function() {
+      view.popup.autoOpenEnabled = false;
+      identifyDisplayDefaultCursor();
+    });
 
     function identifyDisplayDefaultCursor() {
       window._view &&

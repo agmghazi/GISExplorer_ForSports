@@ -64,14 +64,15 @@ export default function HierarchicalSearch() {
             geometry: feature.geometry,
             symbol: polygonSymbol,
             attributes: feature.attributes,
-            popupTemplate: {
-              title: "{name_arabi}",
-              content: "name_arabi: {name_arabi}",
-            },
+            // popupTemplate: {
+            //   title: "{name_arabi}",
+            //   content: "name_arabi: {name_arabi}",
+            // },
           });
           window._view.graphics.removeAll();
           window._view.graphics.add(graphic);
           window._view.goTo(graphic);
+          // feature.popupTemplate = null;
         }
       });
 
@@ -129,14 +130,15 @@ export default function HierarchicalSearch() {
             geometry: feature.geometry,
             symbol: polygonSymbol,
             attributes: feature.attributes,
-            popupTemplate: {
-              title: "{name_a}",
-              content: "{name_a} - {country}",
-            },
+            // popupTemplate: {
+            //   title: "{name_a}",
+            //   content: "{name_a} - {country}",
+            // },
           });
           window._view.graphics.removeAll();
           window._view.graphics.add(graphic);
           window._view.goTo(graphic);
+          // feature.popupTemplate = null;
         }
       });
 
@@ -144,6 +146,7 @@ export default function HierarchicalSearch() {
         url:
           "http://localhost:6080/arcgis/rest/services/DataWorker_H/FeatureServer/12",
       });
+      cityTask.popupEnabled = false;
       let cityQuery = new Query();
       cityQuery.returnGeometry = true;
       cityQuery.outFields = ["*"];
@@ -192,10 +195,10 @@ export default function HierarchicalSearch() {
             geometry: feature.geometry,
             symbol: polygonSymbol,
             attributes: feature.attributes,
-            popupTemplate: {
-              title: "{admnuntarn}",
-              content: "{admnuntarn} - {admnuntarn}",
-            },
+            // popupTemplate: {
+            //   title: "{admnuntarn}",
+            //   content: "{admnuntarn} - {admnuntarn}",
+            // },
           });
           window._view.graphics.removeAll();
           window._view.graphics.add(graphic);
@@ -203,12 +206,12 @@ export default function HierarchicalSearch() {
         }
       });
     };
-    const HsearchExpand = new Expand({
-      expandIconClass: "esri-icon-search",
-      expandTooltip: "البحث",
-      view: window._view,
-      content: document.querySelector("#app-search"),
-    });
+    // const HsearchExpand = new Expand({
+    //   expandIconClass: "esri-icon-search",
+    //   expandTooltip: "البحث",
+    //   view: window._view,
+    //   content: document.querySelector("#app-search"),
+    // });
 
     // window._view.ui.add(HsearchExpand, {
     //   position: "top-right",

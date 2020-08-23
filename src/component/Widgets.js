@@ -5,7 +5,7 @@ import ScaleBar from "esri/widgets/ScaleBar";
 import Expand from "esri/widgets/Expand";
 import Sketch from "esri/widgets/Sketch";
 // import BasemapToggle from "esri/widgets/BasemapToggle";
-import BasemapGallery from "esri/widgets/BasemapGallery";
+// import BasemapGallery from "esri/widgets/BasemapGallery";
 import AreaMeasurement2D from "esri/widgets/AreaMeasurement2D";
 import DistanceMeasurement2D from "esri/widgets/DistanceMeasurement2D";
 import CoordinateConversion from "esri/widgets/CoordinateConversion";
@@ -44,17 +44,17 @@ export default function Widgets() {
     //   view: window._view,
     // });
 
-    const basemapGallery = new BasemapGallery({
-      view: window._view,
-    });
+    // const basemapGallery = new BasemapGallery({
+    //   view: window._view,
+    // });
 
-    const basemapExpand = new Expand({
-      expandIconClass: "esri-icon-basemap",
-      view: window._view,
-      content: basemapGallery,
-      expanded: false,
-      expandTooltip: "الخرائط",
-    });
+    // const basemapExpand = new Expand({
+    //   expandIconClass: "esri-icon-basemap",
+    //   view: window._view,
+    //   content: basemapGallery,
+    //   expanded: false,
+    //   expandTooltip: "الخرائط",
+    // });
     const AreameasurementWidget = new AreaMeasurement2D({
       view: window._view,
     });
@@ -128,11 +128,11 @@ export default function Widgets() {
         position: "top-left",
         index: 5,
       },
-      {
-        component: basemapExpand,
-        position: "top-left",
-        index: 6,
-      },
+      // {
+      // component: basemapExpand,
+      // position: "top-left",
+      // index: 6,
+      // },
       {
         component: AreameasurementExpand,
         position: "top-left",

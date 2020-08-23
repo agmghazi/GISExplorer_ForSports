@@ -141,10 +141,10 @@ header.top-nav {
   background-color: transparent;
 }
 .esri-widget--button:hover {
-  background-color: white;
+  background-color: rgb(55, 94, 236);
 }
 .esri-widget {
-  background-color: transparent;
+  background-color: #ffffff;
 }
 .esri-ui-corner .esri-component {
   box-shadow: none;
@@ -158,6 +158,7 @@ header.top-nav {
 .esri-ui-corner .esri-component {
   font-size: 23px;
 }
+
 // .esri-widget *,
 // .esri-widget *:before,
 // .esri-widget *:after {
