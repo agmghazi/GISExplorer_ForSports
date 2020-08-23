@@ -1,6 +1,7 @@
 import "./config";
 import ArcGISMap from "esri/Map";
 import MapView from "esri/views/MapView";
+import WebMap from "esri/WebMap";
 import GraphicsLayer from "esri/layers/GraphicsLayer";
 import React from "react";
 
@@ -23,6 +24,12 @@ export default function App() {
   let topoVectorMap;
   let streetsVectorMap;
 
+  let GoogleMapStreets;
+  let GoogleMapsSatellite;
+  let BingMap;
+  let mapboxMap;
+  let SpaceMap;
+
   let view;
   let lastLanConfig;
   let lastLongConfig;
@@ -37,11 +44,76 @@ export default function App() {
 
     streetMap = new ArcGISMap({
       basemap: "streets",
-      layers: [layer],
     });
     satelliteMap = new ArcGISMap({
       basemap: "satellite",
-      layers: [layer],
+    });
+    hybridMap = new ArcGISMap({
+      basemap: "hybrid",
+    });
+    terrainMap = new ArcGISMap({
+      basemap: "terrain",
+    });
+    grayMap = new ArcGISMap({
+      basemap: "gray",
+    });
+    darkGrayMap = new ArcGISMap({
+      basemap: "dark-gray",
+    });
+    oceansMap = new ArcGISMap({
+      basemap: "oceans",
+    });
+    nationalGeographicMap = new ArcGISMap({
+      basemap: "national-geographic",
+    });
+    osmMap = new ArcGISMap({
+      basemap: "osm",
+    });
+    darkGrayVectorMap = new ArcGISMap({
+      basemap: "dark-gray-vector",
+    });
+    grayVectorMap = new ArcGISMap({
+      basemap: "gray-vector",
+    });
+    streetsNavigationVectorMap = new ArcGISMap({
+      basemap: "streets-navigation-vector",
+    });
+    streetsReliefVectorMap = new ArcGISMap({
+      basemap: "streets-relief-vector",
+    });
+    streetsNightVectorMap = new ArcGISMap({
+      basemap: "streets-night-vector",
+    });
+    topoVectorMap = new ArcGISMap({
+      basemap: "topo-vector",
+    });
+    streetsVectorMap = new ArcGISMap({
+      basemap: "streets-vector",
+    });
+    GoogleMapStreets = new WebMap({
+      portalItem: {
+        id: "1de2683cffdb44259c556b83a7a71ebd",
+      },
+    });
+    GoogleMapsSatellite = new WebMap({
+      portalItem: {
+        id: "c82f2a5a424b4a41981a7f09530273a5",
+      },
+    });
+    BingMap = new WebMap({
+      portalItem: {
+        id: "4b5bb3f2dc8d492bbd5dff34a9edb26e",
+      },
+    });
+    mapboxMap = new WebMap({
+      portalItem: {
+        id: "aee29c1a69704130bac8e82f90e061e5",
+      },
+    });
+    SpaceMap = new WebMap({
+      portalItem: {
+        id: "713ed80342ae44099efa63a3a54793dd",
+      },
     });
 
     view = new MapView({
@@ -73,6 +145,27 @@ export default function App() {
     window._topoMap = topoMap;
     window._streetMap = streetMap;
     window._satelliteMap = satelliteMap;
+
+    window._hybridMap = hybridMap;
+    window._terrainMap = terrainMap;
+    window._grayMap = grayMap;
+    window._darkGrayMap = darkGrayMap;
+    window._oceansMap = oceansMap;
+    window._nationalGeographicMap = nationalGeographicMap;
+    window._osmMap = osmMap;
+    window._darkGrayVectorMap = darkGrayVectorMap;
+    window._grayVectorMap = grayVectorMap;
+    window._streetsNavigationVectorMap = streetsNavigationVectorMap;
+    window._streetsReliefVectorMap = streetsReliefVectorMap;
+    window._streetsNightVectorMap = streetsNightVectorMap;
+    window._topoVectorMap = topoVectorMap;
+    window._streetsVectorMap = streetsVectorMap;
+
+    window._GoogleMapStreets = GoogleMapStreets;
+    window._GoogleMapsSatellite = GoogleMapsSatellite;
+    window._BingMap = BingMap;
+    window._mapboxMap = mapboxMap;
+    window._SpaceMap = SpaceMap;
 
     window._layer = layer;
 

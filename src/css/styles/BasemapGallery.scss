@@ -2,11 +2,32 @@
   position: absolute;
   top: -5px;
   right: 404px;
-  width: 237px;
+  width: 253px;
   height: 244px;
   z-index: 1;
   background-color: white;
   overflow: auto;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(25, 122, 208);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #8d0fee;
 }
 
 #BasemapDiv {
@@ -100,11 +121,12 @@
 }
 .EXtSatalitteDiv {
   width: 68px;
-  background-color: white;
+  background-color: aliceblue;
   z-index: 2;
   position: absolute;
   left: 165px;
   height: 101px;
+  border-radius: 8px;
 }
 .EXtSatalitteDivImg {
   height: 83px;
@@ -135,11 +157,12 @@
 
 .EXtTopoDiv {
   width: 68px;
-  background-color: white;
+  background-color: aliceblue;
   z-index: 2;
   position: absolute;
   left: 89px;
   height: 101px;
+  border-radius: 8px;
 }
 
 .EXtTopoDivImg {
@@ -170,13 +193,13 @@
 
 .EXtSreetDiv {
   width: 68px;
-  background-color: white;
+  background-color: aliceblue;
   z-index: 2;
   position: absolute;
   left: 9px;
   height: 101px;
+  border-radius: 8px;
 }
-
 .EXtSreetDivImg {
   height: 83px;
   width: 64px;
@@ -187,11 +210,9 @@
   border: 0.5px solid #ddd;
   padding: 5px;
 }
-
 .EXtSreetDivImg:hover {
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
-
 .EXtSreetDiv label {
   height: 35px;
   width: 52px;
@@ -203,6 +224,691 @@
   color: black;
   font-weight: unset;
 }
+
+// ---------------------------------
+.EXhybridMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 9px;
+  height: 101px;
+  border-radius: 8px;
+  top: 109px;
+}
+.EXhybridMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXhybridMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXhybridMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXTerrainMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 87px;
+  height: 101px;
+  border-radius: 8px;
+  top: 109px;
+}
+.EXTerrainMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXTerrainMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXTerrainMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXgrayMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 165px;
+  height: 101px;
+  border-radius: 8px;
+  top: 219px;
+}
+.EXgrayMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXgrayMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXgrayMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXdarkGrayMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 165px;
+  height: 101px;
+  border-radius: 8px;
+  top: 109px;
+}
+.EXdarkGrayMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXdarkGrayMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXdarkGrayMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXoceansMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 89px;
+  height: 101px;
+  border-radius: 8px;
+  top: 219px;
+}
+.EXoceansMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXoceansMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXoceansMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXnationalGeographicMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 13px;
+  height: 101px;
+  border-radius: 8px;
+  top: 219px;
+}
+.EXnationalGeographicMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXnationalGeographicMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXnationalGeographicMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXosmMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 13px;
+  height: 101px;
+  border-radius: 8px;
+  top: 329px;
+}
+.EXosmMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXosmMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXosmMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXdarkGrayVectorMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 93px;
+  height: 101px;
+  border-radius: 8px;
+  top: 329px;
+}
+.EXdarkGrayVectorMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXdarkGrayVectorMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXdarkGrayVectorMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXgrayVectorMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 93px;
+  height: 101px;
+  border-radius: 8px;
+  top: 329px;
+}
+.EXgrayVectorMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXgrayVectorMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXgrayVectorMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXstreetsNavigationVectorMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 165px;
+  height: 101px;
+  border-radius: 8px;
+  top: 329px;
+}
+.EXstreetsNavigationVectorMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXstreetsNavigationVectorMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXstreetsNavigationVectorMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXstreetsReliefVectorMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 165px;
+  height: 101px;
+  border-radius: 8px;
+  top: 436px;
+}
+.EXstreetsReliefVectorMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXstreetsReliefVectorMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXstreetsReliefVectorMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXstreetsNightVectorMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 93px;
+  height: 101px;
+  border-radius: 8px;
+  top: 436px;
+}
+.EXstreetsNightVectorMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXstreetsNightVectorMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXstreetsNightVectorMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXtopoVectorMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 13px;
+  height: 101px;
+  border-radius: 8px;
+  top: 436px;
+}
+.EXtopoVectorMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXtopoVectorMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXtopoVectorMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXstreetsVectorMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 13px;
+  height: 101px;
+  border-radius: 8px;
+  top: 544px;
+}
+.EXstreetsVectorMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXstreetsVectorMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXstreetsVectorMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXGoogleMapsSatelliteMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 93px;
+  height: 101px;
+  border-radius: 8px;
+  top: 544px;
+}
+.EXGoogleMapsSatelliteMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXGoogleMapsSatelliteMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXGoogleMapsSatelliteMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXGoogleMapStreetsMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 164px;
+  height: 101px;
+  border-radius: 8px;
+  top: 544px;
+}
+.EXGoogleMapStreetsMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXGoogleMapStreetsMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXGoogleMapStreetsMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXBingMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 13px;
+  height: 101px;
+  border-radius: 8px;
+  top: 653px;
+}
+.EXBingMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXBingMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXBingMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXmapboxMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 93px;
+  height: 101px;
+  border-radius: 8px;
+  top: 653px;
+}
+.EXmapboxMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXmapboxMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXmapboxMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
+// ---------------------------------
+.EXSpaceMapDiv {
+  width: 68px;
+  background-color: aliceblue;
+  z-index: 2;
+  position: absolute;
+  left: 164px;
+  height: 101px;
+  border-radius: 8px;
+  top: 653px;
+}
+.EXSpaceMapImg {
+  height: 83px;
+  width: 64px;
+  top: 3px;
+  position: relative;
+  z-index: 0;
+  border-radius: 8px;
+  border: 0.5px solid #ddd;
+  padding: 5px;
+}
+.EXSpaceMapImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.EXSpaceMapDiv label {
+  height: 35px;
+  width: 52px;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+  color: black;
+  font-weight: unset;
+}
+
 // <span className="BaseCheckmark">
 // <div className="BaseCheckmark_circle"></div>
 // <div className="BaseCheckmark_stem"></div>
