@@ -17,6 +17,7 @@ import Overview_map from "./component/Overview_map";
 import SynchronizeView from "./component/SynchronizeView";
 import BasemapGallery from "./component/BasemapGallery";
 import RemoveGraphic from "./component/RemoveGraphic";
+import ReviewShapfile from "./component/ReviewShapfile";
 
 const wrapper = document.getElementById("root");
 wrapper
@@ -37,6 +38,7 @@ wrapper
         <Overview_map />
         <SynchronizeView />
         <BasemapGallery />
+        <ReviewShapfile />
         <RemoveGraphic />
       </>,
       wrapper
