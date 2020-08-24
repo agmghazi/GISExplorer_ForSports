@@ -16,6 +16,7 @@ import FeaturesTable from "./component/FeaturesTable";
 import Overview_map from "./component/Overview_map";
 import SynchronizeView from "./component/SynchronizeView";
 import BasemapGallery from "./component/BasemapGallery";
+import RemoveGraphic from "./component/RemoveGraphic";
 
 const wrapper = document.getElementById("root");
 wrapper
@@ -36,6 +37,7 @@ wrapper
         <Overview_map />
         <SynchronizeView />
         <BasemapGallery />
+        <RemoveGraphic />
       </>,
       wrapper
     )
