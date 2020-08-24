@@ -20,7 +20,7 @@ export default function HierarchicalSearch() {
   React.useEffect(() => {
     let queryTask = new QueryTask({
       url:
-        "http://localhost:6080/arcgis/rest/services/DataWorker_H/FeatureServer/10",
+        "http://93.112.6.225/arcgis/rest/services/MapServiceTest/FeatureServer/265",
     });
 
     let query = new Query();
@@ -32,7 +32,7 @@ export default function HierarchicalSearch() {
       let ddlStates = document.querySelector("#ddlStates");
       _stateFeatures = results.features;
       results.features.map((feature) => {
-        const name_arabi = feature.attributes.name_arabi;
+        const name_arabi = feature.attributes.NAME_ARABI;
         let opt = document.createElement("option");
         opt.value = name_arabi;
         opt.innerHTML = name_arabi;
@@ -59,7 +59,7 @@ export default function HierarchicalSearch() {
     document.querySelector("#ddlStates").onchange = () => {
       const name_arabi = document.querySelector("#ddlStates").value;
       _stateFeatures.map((feature) => {
-        if (feature.attributes.name_arabi === name_arabi) {
+        if (feature.attributes.NAME_ARABI === name_arabi) {
           var graphic = new Graphic({
             geometry: feature.geometry,
             symbol: polygonSymbol,
@@ -78,12 +78,12 @@ export default function HierarchicalSearch() {
 
       let queryTaskS = new QueryTask({
         url:
-          "http://localhost:6080/arcgis/rest/services/DataWorker_H/FeatureServer/11",
+          "http://93.112.6.225/arcgis/rest/services/MapServiceTest/FeatureServer/266",
       });
       let queryS = new Query();
       queryS.returnGeometry = true;
       queryS.outFields = ["*"];
-      queryS.where = `country = '${name_arabi}'`;
+      queryS.where = `COUNTRY= N'${name_arabi}'`;
       queryTaskS.execute(queryS).then((results) => {
         let ddlCounties = document.querySelector("#ddlCounties");
         _countiesFeatures = results.features;
@@ -97,7 +97,7 @@ export default function HierarchicalSearch() {
         ddlCounties.classList.add("custom-select");
 
         results.features.map((feature) => {
-          const name_a = feature.attributes.name_a;
+          const name_a = feature.attributes.NAME_A;
           let opt = document.createElement("option");
           opt.value = name_a;
           opt.innerHTML = name_a;
@@ -125,7 +125,7 @@ export default function HierarchicalSearch() {
     document.querySelector("#ddlCounties").onchange = () => {
       const name_a = document.querySelector("#ddlCounties").value;
       _countiesFeatures.map((feature) => {
-        if (feature.attributes.name_a === name_a) {
+        if (feature.attributes.NAME_A === name_a) {
           var graphic = new Graphic({
             geometry: feature.geometry,
             symbol: polygonSymbol,
@@ -144,14 +144,13 @@ export default function HierarchicalSearch() {
 
       let cityTask = new QueryTask({
         url:
-          "http://localhost:6080/arcgis/rest/services/DataWorker_H/FeatureServer/12",
+          "http://93.112.6.225/arcgis/rest/services/MapServiceTest/FeatureServer/267",
       });
       cityTask.popupEnabled = false;
       let cityQuery = new Query();
       cityQuery.returnGeometry = true;
       cityQuery.outFields = ["*"];
-      cityQuery.where = `zone = '${name_a}'`;
-      console.log(name_a);
+      cityQuery.where = `Zone = N'${name_a}'`;
       cityTask.execute(cityQuery).then((results) => {
         let ddlCity = document.querySelector("#ddlCity");
         _cityFeatures = results.features;
@@ -163,7 +162,7 @@ export default function HierarchicalSearch() {
         ddlCity.classList.add("custom-select");
 
         results.features.map((feature) => {
-          const admnuntarn = feature.attributes.admnuntarn;
+          const admnuntarn = feature.attributes.AdmnUntArN;
           let opts = document.createElement("option");
           opts.value = admnuntarn;
           opts.innerHTML = admnuntarn;
@@ -173,7 +172,7 @@ export default function HierarchicalSearch() {
       cityTask
         .executeForCount({
           // autocasts as new Query()
-          where: `zone = '${name_a}'`,
+          where: `Zone = N'${name_a}'`,
         })
         .then(
           function(count) {
@@ -190,7 +189,7 @@ export default function HierarchicalSearch() {
     document.querySelector("#ddlCity").onchange = () => {
       const admnuntarn = document.querySelector("#ddlCity").value;
       _cityFeatures.map((feature) => {
-        if (feature.attributes.admnuntarn === admnuntarn) {
+        if (feature.attributes.AdmnUntArN === admnuntarn) {
           var graphic = new Graphic({
             geometry: feature.geometry,
             symbol: polygonSymbol,
