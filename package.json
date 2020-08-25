@@ -42,8 +42,12 @@
   },
   "dependencies": {
     "@arcgis/webpack-plugin": "~4.16.0",
+    "@hookform/error-message": "0.0.4",
+    "esm": "^3.2.25",
+    "geodesy": "^2.2.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-hook-form": "^6.5.1"
   },
   "arcgis": {
     "type": "jsapi"

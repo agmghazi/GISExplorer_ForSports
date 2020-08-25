@@ -18,6 +18,7 @@ import SynchronizeView from "./component/SynchronizeView";
 import BasemapGallery from "./component/BasemapGallery";
 import RemoveGraphic from "./component/RemoveGraphic";
 import ReviewShapfile from "./component/ReviewShapfile";
+import SearchByCordinates from "./component/SearchByCordinates";
 
 const wrapper = document.getElementById("root");
 wrapper
@@ -40,6 +41,7 @@ wrapper
         <BasemapGallery />
         <ReviewShapfile />
         <RemoveGraphic />
+        <SearchByCordinates />
       </>,
       wrapper
     )
