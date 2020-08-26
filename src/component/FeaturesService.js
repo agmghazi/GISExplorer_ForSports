@@ -77,6 +77,13 @@ export default function FeaturesService() {
       popupTemplate,
       renderer: featureLayerSymbol,
     });
+    const survyBuilding = new FeatureLayer({
+      url:
+        "http://93.112.6.225/arcgis/rest/services/MapServiceTest/FeatureServer/263",
+      outFields: ["*"],
+      // popupTemplate,
+      renderer: featureLayerSymbol,
+    });
 
     const MapImage = new MapImageLayer({
       url: "http://93.112.6.225/arcgis/rest/services/MapServiceTest/MapServer",
@@ -86,6 +93,7 @@ export default function FeaturesService() {
     // window._satelliteMap.addMany([MapImage, survyPoint]);
     // window._streetMap.addMany([MapImage, survyPoint]);
     window._survyPoint = survyPoint;
+    window._survyBuilding = survyBuilding;
     window._MapImage = MapImage;
 
     MapImage.when(() => {

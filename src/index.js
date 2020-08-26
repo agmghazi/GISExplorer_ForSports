@@ -19,6 +19,7 @@ import BasemapGallery from "./component/BasemapGallery";
 import RemoveGraphic from "./component/RemoveGraphic";
 import ReviewShapfile from "./component/ReviewShapfile";
 import SearchByCordinates from "./component/SearchByCordinates";
+import SpatialQuery from "./component/SpatialQuery";
 
 const wrapper = document.getElementById("root");
 wrapper
@@ -42,6 +43,7 @@ wrapper
         <ReviewShapfile />
         <RemoveGraphic />
         <SearchByCordinates />
+        <SpatialQuery />
       </>,
       wrapper
     )

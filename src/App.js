@@ -132,6 +132,7 @@ export default function App() {
       },
     });
     view.popup.autoOpenEnabled = false;
+
     window._view = view;
     window._viewMain1 = view.id;
     lastLanConfig = view.center.latitude;
