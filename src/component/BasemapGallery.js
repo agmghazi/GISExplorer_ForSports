@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function BasemapGallery() {
-  let lastZoomConfig;
+  var lastZoomConfig;
 
   React.useEffect(() => {
     document
@@ -12,8 +12,16 @@ export default function BasemapGallery() {
         window._lastZoomConfig = window._view.zoom;
         let psatelliteMap = new Promise(function(resolve, reject) {
           window._view.map = window._satelliteMap;
-          // console.log(FeaturesTableWithToc);
-          onChange_satelliteMap(parseFloat(1, true, false));
+          onChange_satelliteMap(
+            parseFloat(window._progressBarValue),
+            true,
+            false
+          );
+          var progressBar = document.querySelector("#progressBarapp");
+          progressBar.onchange = function() {
+            onChange_satelliteMap(parseFloat(progressBar.value), false, true);
+          };
+
           resolve();
         });
         psatelliteMap.then(function() {
@@ -28,7 +36,12 @@ export default function BasemapGallery() {
       window._lastZoomConfig = window._view.zoom;
       let ptopoMap = new Promise(function(resolve, reject) {
         window._view.map = window._topoMap;
-        onChange_topoMap(parseFloat(1, true, false));
+        onChange_topoMap(parseFloat(window._progressBarValue), true, false);
+        var progressBar = document.querySelector("#progressBarapp");
+        progressBar.onchange = function() {
+          onChange_topoMap(parseFloat(progressBar.value), false, true);
+        };
+
         resolve();
       });
       ptopoMap.then(function() {
@@ -44,7 +57,12 @@ export default function BasemapGallery() {
 
       let pstreetMap = new Promise(function(resolve, reject) {
         window._view.map = window._streetMap;
-        onChange_streetMap(parseFloat(1, true, false));
+        onChange_streetMap(parseFloat(window._progressBarValue), true, false);
+        var progressBar = document.querySelector("#progressBarapp");
+        progressBar.onchange = function() {
+          onChange_streetMap(parseFloat(progressBar.value), false, true);
+        };
+
         resolve();
       });
       pstreetMap.then(function() {
@@ -717,7 +735,7 @@ export default function BasemapGallery() {
   );
 }
 
-export function onChange_satelliteMap(numOpicty, poolGoTo, RempoveMap) {
+function onChange_satelliteMap(numOpicty, poolGoTo, RempoveMap) {
   window._MapImage.opacity = numOpicty;
   //for delete all layers
   if (RempoveMap == true) {
@@ -737,7 +755,7 @@ export function onChange_satelliteMap(numOpicty, poolGoTo, RempoveMap) {
     }
   });
 }
-export function onChange_topoMap(numOpicty, poolGoTo, RempoveMap) {
+function onChange_topoMap(numOpicty, poolGoTo, RempoveMap) {
   window._MapImage.opacity = numOpicty;
   //for delete all layers
   if (RempoveMap == true) {
@@ -758,7 +776,7 @@ export function onChange_topoMap(numOpicty, poolGoTo, RempoveMap) {
     }
   });
 }
-export function onChange_streetMap(numOpicty, poolGoTo, RempoveMap) {
+function onChange_streetMap(numOpicty, poolGoTo, RempoveMap) {
   window._MapImage.opacity = numOpicty;
   //for delete all layers
   if (RempoveMap == true) {

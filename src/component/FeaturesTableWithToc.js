@@ -3,11 +3,6 @@ import FeatureLayer from "esri/layers/FeatureLayer";
 import MapImageLayer from "esri/layers/MapImageLayer";
 import EsriRequest from "esri/request";
 import GraphicClass from "esri/Graphic";
-import {
-  onChange_satelliteMap,
-  onChange_streetMap,
-  onChange_topoMap,
-} from "./BasemapGallery";
 
 export default function FeaturesTableWithToc() {
   var Request;
@@ -101,18 +96,12 @@ export default function FeaturesTableWithToc() {
 
     let progressBar = document.querySelector("#progressBarapp");
     progressBar.onchange = function() {
-      // let progressBarValue = parseFloat(progressBar.value);
+      let progressBarValue = parseFloat(progressBar.value);
       onChangeServiceMap(parseFloat(progressBar.value), false);
-      debugger;
-      if (onChange_satelliteMap == true) {
-        onChange_satelliteMap(parseFloat(progressBar.value), false, true);
-      } else if (onChange_topoMap == true) {
-        onChange_topoMap(parseFloat(progressBar.value), false, true);
-      } else {
-        onChange_streetMap(parseFloat(progressBar.value), false, true);
-      }
-      // window._progressBarValue = progressBarValue;
+      window._progressBar = progressBar;
+      window._progressBarValue = progressBarValue;
     };
+
     function onChangeFeatureService(layerIDs) {
       let layerFeature = new MapImageLayer({
         url: ServiceURL,
