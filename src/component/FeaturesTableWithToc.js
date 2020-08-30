@@ -93,13 +93,14 @@ export default function FeaturesTableWithToc() {
     };
 
     onChangeServiceMap(1, true);
+    let progressBarValue;
+    window._progressBarValue = progressBarValue;
+    window._progressBarValue = 1;
 
     let progressBar = document.querySelector("#progressBarapp");
     progressBar.onchange = function() {
-      let progressBarValue = parseFloat(progressBar.value);
       onChangeServiceMap(parseFloat(progressBar.value), false);
-      window._progressBar = progressBar;
-      window._progressBarValue = progressBarValue;
+      window._progressBarValue = parseFloat(progressBar.value);
     };
 
     function onChangeFeatureService(layerIDs) {

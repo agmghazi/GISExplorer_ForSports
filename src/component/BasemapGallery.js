@@ -17,9 +17,10 @@ export default function BasemapGallery() {
             true,
             false
           );
-          var progressBar = document.querySelector("#progressBarapp");
+          let progressBar = document.querySelector("#progressBarapp");
           progressBar.onchange = function() {
             onChange_satelliteMap(parseFloat(progressBar.value), false, true);
+            window._progressBarValue = parseFloat(progressBar.value);
           };
 
           resolve();
@@ -37,9 +38,10 @@ export default function BasemapGallery() {
       let ptopoMap = new Promise(function(resolve, reject) {
         window._view.map = window._topoMap;
         onChange_topoMap(parseFloat(window._progressBarValue), true, false);
-        var progressBar = document.querySelector("#progressBarapp");
+        let progressBar = document.querySelector("#progressBarapp");
         progressBar.onchange = function() {
           onChange_topoMap(parseFloat(progressBar.value), false, true);
+          window._progressBarValue = parseFloat(progressBar.value);
         };
 
         resolve();
@@ -58,9 +60,10 @@ export default function BasemapGallery() {
       let pstreetMap = new Promise(function(resolve, reject) {
         window._view.map = window._streetMap;
         onChange_streetMap(parseFloat(window._progressBarValue), true, false);
-        var progressBar = document.querySelector("#progressBarapp");
+        let progressBar = document.querySelector("#progressBarapp");
         progressBar.onchange = function() {
           onChange_streetMap(parseFloat(progressBar.value), false, true);
+          window._progressBarValue = parseFloat(progressBar.value);
         };
 
         resolve();
@@ -80,12 +83,13 @@ export default function BasemapGallery() {
 
         let hybridMap = new Promise(function(resolve, reject) {
           window._view.map = window._hybridMap;
-          window._hybridMap.addMany([
-            window._layer,
-            window._MapImage,
-            window._survyPoint,
-          ]);
 
+          onChange_hybridMap(parseFloat(window._progressBarValue), true, false);
+          let progressBar = document.querySelector("#progressBarapp");
+          progressBar.onchange = function() {
+            onChange_hybridMap(parseFloat(progressBar.value), false, true);
+            window._progressBarValue = parseFloat(progressBar.value);
+          };
           resolve();
         });
         hybridMap.then(function() {
@@ -103,11 +107,17 @@ export default function BasemapGallery() {
 
         let terrainMap = new Promise(function(resolve, reject) {
           window._view.map = window._terrainMap;
-          window._terrainMap.addMany([
-            window._layer,
-            window._MapImage,
-            window._survyPoint,
-          ]);
+
+          onChange_terrainMap(
+            parseFloat(window._progressBarValue),
+            true,
+            false
+          );
+          let progressBar = document.querySelector("#progressBarapp");
+          progressBar.onchange = function() {
+            onChange_terrainMap(parseFloat(progressBar.value), false, true);
+            window._progressBarValue = parseFloat(progressBar.value);
+          };
 
           resolve();
         });
@@ -124,11 +134,13 @@ export default function BasemapGallery() {
 
       let grayMap = new Promise(function(resolve, reject) {
         window._view.map = window._grayMap;
-        window._grayMap.addMany([
-          window._layer,
-          window._MapImage,
-          window._survyPoint,
-        ]);
+
+        onChange_grayMap(parseFloat(window._progressBarValue), true, false);
+        let progressBar = document.querySelector("#progressBarapp");
+        progressBar.onchange = function() {
+          onChange_grayMap(parseFloat(progressBar.value), false, true);
+          window._progressBarValue = parseFloat(progressBar.value);
+        };
 
         resolve();
       });
@@ -147,11 +159,17 @@ export default function BasemapGallery() {
 
         let darkGrayMap = new Promise(function(resolve, reject) {
           window._view.map = window._darkGrayMap;
-          window._darkGrayMap.addMany([
-            window._layer,
-            window._MapImage,
-            window._survyPoint,
-          ]);
+
+          onChange_darkGrayMap(
+            parseFloat(window._progressBarValue),
+            true,
+            false
+          );
+          let progressBar = document.querySelector("#progressBarapp");
+          progressBar.onchange = function() {
+            onChange_darkGrayMap(parseFloat(progressBar.value), false, true);
+            window._progressBarValue = parseFloat(progressBar.value);
+          };
 
           resolve();
         });
@@ -170,11 +188,13 @@ export default function BasemapGallery() {
 
         let oceansMap = new Promise(function(resolve, reject) {
           window._view.map = window._oceansMap;
-          window._oceansMap.addMany([
-            window._layer,
-            window._MapImage,
-            window._survyPoint,
-          ]);
+
+          onChange_oceansMap(parseFloat(window._progressBarValue), true, false);
+          let progressBar = document.querySelector("#progressBarapp");
+          progressBar.onchange = function() {
+            onChange_oceansMap(parseFloat(progressBar.value), false, true);
+            window._progressBarValue = parseFloat(progressBar.value);
+          };
 
           resolve();
         });
@@ -193,11 +213,17 @@ export default function BasemapGallery() {
 
         let nationalGeographicMap = new Promise(function(resolve, reject) {
           window._view.map = window._nationalGeographicMap;
-          window._nationalGeographicMap.addMany([
-            window._layer,
-            window._MapImage,
-            window._survyPoint,
-          ]);
+
+          onChange_NGeographicMap(
+            parseFloat(window._progressBarValue),
+            true,
+            false
+          );
+          let progressBar = document.querySelector("#progressBarapp");
+          progressBar.onchange = function() {
+            onChange_NGeographicMap(parseFloat(progressBar.value), false, true);
+            window._progressBarValue = parseFloat(progressBar.value);
+          };
 
           resolve();
         });
@@ -214,11 +240,13 @@ export default function BasemapGallery() {
 
       let osmMap = new Promise(function(resolve, reject) {
         window._view.map = window._osmMap;
-        window._osmMap.addMany([
-          window._layer,
-          window._MapImage,
-          window._survyPoint,
-        ]);
+
+        onChange_osmMap(parseFloat(window._progressBarValue), true, false);
+        let progressBar = document.querySelector("#progressBarapp");
+        progressBar.onchange = function() {
+          onChange_osmMap(parseFloat(progressBar.value), false, true);
+          window._progressBarValue = parseFloat(progressBar.value);
+        };
 
         resolve();
       });
@@ -237,11 +265,21 @@ export default function BasemapGallery() {
 
         let darkGrayVectorMap = new Promise(function(resolve, reject) {
           window._view.map = window._darkGrayVectorMap;
-          window._darkGrayVectorMap.addMany([
-            window._layer,
-            window._MapImage,
-            window._survyPoint,
-          ]);
+
+          onChange_darkGrayVectorMap(
+            parseFloat(window._progressBarValue),
+            true,
+            false
+          );
+          let progressBar = document.querySelector("#progressBarapp");
+          progressBar.onchange = function() {
+            onChange_darkGrayVectorMap(
+              parseFloat(progressBar.value),
+              false,
+              true
+            );
+            window._progressBarValue = parseFloat(progressBar.value);
+          };
 
           resolve();
         });
@@ -260,11 +298,17 @@ export default function BasemapGallery() {
 
         let grayVectorMap = new Promise(function(resolve, reject) {
           window._view.map = window._grayVectorMap;
-          window._grayVectorMap.addMany([
-            window._layer,
-            window._MapImage,
-            window._survyPoint,
-          ]);
+
+          onChange_grayVectorMap(
+            parseFloat(window._progressBarValue),
+            true,
+            false
+          );
+          let progressBar = document.querySelector("#progressBarapp");
+          progressBar.onchange = function() {
+            onChange_grayVectorMap(parseFloat(progressBar.value), false, true);
+            window._progressBarValue = parseFloat(progressBar.value);
+          };
 
           resolve();
         });
@@ -283,11 +327,17 @@ export default function BasemapGallery() {
 
         let streetsNavigationVectorMap = new Promise(function(resolve, reject) {
           window._view.map = window._streetsNavigationVectorMap;
-          window._streetsNavigationVectorMap.addMany([
-            window._layer,
-            window._MapImage,
-            window._survyPoint,
-          ]);
+
+          onChange_SNVectorMap(
+            parseFloat(window._progressBarValue),
+            true,
+            false
+          );
+          let progressBar = document.querySelector("#progressBarapp");
+          progressBar.onchange = function() {
+            onChange_SNVectorMap(parseFloat(progressBar.value), false, true);
+            window._progressBarValue = parseFloat(progressBar.value);
+          };
 
           resolve();
         });
@@ -306,11 +356,21 @@ export default function BasemapGallery() {
 
         let streetsReliefVectorMap = new Promise(function(resolve, reject) {
           window._view.map = window._streetsReliefVectorMap;
-          window._streetsReliefVectorMap.addMany([
-            window._layer,
-            window._MapImage,
-            window._survyPoint,
-          ]);
+
+          onChange_SReliefVectorMap(
+            parseFloat(window._progressBarValue),
+            true,
+            false
+          );
+          let progressBar = document.querySelector("#progressBarapp");
+          progressBar.onchange = function() {
+            onChange_SReliefVectorMap(
+              parseFloat(progressBar.value),
+              false,
+              true
+            );
+            window._progressBarValue = parseFloat(progressBar.value);
+          };
 
           resolve();
         });
@@ -329,11 +389,21 @@ export default function BasemapGallery() {
 
         let streetsNightVectorMap = new Promise(function(resolve, reject) {
           window._view.map = window._streetsNightVectorMap;
-          window._streetsNightVectorMap.addMany([
-            window._layer,
-            window._MapImage,
-            window._survyPoint,
-          ]);
+
+          onChange_SNightVectorMap(
+            parseFloat(window._progressBarValue),
+            true,
+            false
+          );
+          let progressBar = document.querySelector("#progressBarapp");
+          progressBar.onchange = function() {
+            onChange_SNightVectorMap(
+              parseFloat(progressBar.value),
+              false,
+              true
+            );
+            window._progressBarValue = parseFloat(progressBar.value);
+          };
 
           resolve();
         });
@@ -352,11 +422,17 @@ export default function BasemapGallery() {
 
         let topoVectorMap = new Promise(function(resolve, reject) {
           window._view.map = window._topoVectorMap;
-          window._topoVectorMap.addMany([
-            window._layer,
-            window._MapImage,
-            window._survyPoint,
-          ]);
+
+          onChange_topoVectorMap(
+            parseFloat(window._progressBarValue),
+            true,
+            false
+          );
+          let progressBar = document.querySelector("#progressBarapp");
+          progressBar.onchange = function() {
+            onChange_topoVectorMap(parseFloat(progressBar.value), false, true);
+            window._progressBarValue = parseFloat(progressBar.value);
+          };
 
           resolve();
         });
@@ -375,11 +451,17 @@ export default function BasemapGallery() {
 
         let streetsVectorMap = new Promise(function(resolve, reject) {
           window._view.map = window._streetsVectorMap;
-          window._streetsVectorMap.addMany([
-            window._layer,
-            window._MapImage,
-            window._survyPoint,
-          ]);
+
+          onChange_SVectorMap(
+            parseFloat(window._progressBarValue),
+            true,
+            false
+          );
+          let progressBar = document.querySelector("#progressBarapp");
+          progressBar.onchange = function() {
+            onChange_SVectorMap(parseFloat(progressBar.value), false, true);
+            window._progressBarValue = parseFloat(progressBar.value);
+          };
 
           resolve();
         });
@@ -398,11 +480,17 @@ export default function BasemapGallery() {
 
         let GoogleMapStreetsMap = new Promise(function(resolve, reject) {
           window._view.map = window._GoogleMapStreets;
-          window._GoogleMapStreets.addMany([
-            window._layer,
-            window._MapImage,
-            window._survyPoint,
-          ]);
+
+          onChange__GMapStreets(
+            parseFloat(window._progressBarValue),
+            true,
+            false
+          );
+          let progressBar = document.querySelector("#progressBarapp");
+          progressBar.onchange = function() {
+            onChange__GMapStreets(parseFloat(progressBar.value), false, true);
+            window._progressBarValue = parseFloat(progressBar.value);
+          };
 
           resolve();
         });
@@ -421,11 +509,17 @@ export default function BasemapGallery() {
 
         let GoogleMapsSatelliteMap = new Promise(function(resolve, reject) {
           window._view.map = window._GoogleMapsSatellite;
-          window._GoogleMapsSatellite.addMany([
-            window._layer,
-            window._MapImage,
-            window._survyPoint,
-          ]);
+
+          onChange_GMSatellite(
+            parseFloat(window._progressBarValue),
+            true,
+            false
+          );
+          let progressBar = document.querySelector("#progressBarapp");
+          progressBar.onchange = function() {
+            onChange_GMSatellite(parseFloat(progressBar.value), false, true);
+            window._progressBarValue = parseFloat(progressBar.value);
+          };
 
           resolve();
         });
@@ -442,11 +536,13 @@ export default function BasemapGallery() {
 
       let BingMap = new Promise(function(resolve, reject) {
         window._view.map = window._BingMap;
-        window._BingMap.addMany([
-          window._layer,
-          window._MapImage,
-          window._survyPoint,
-        ]);
+
+        onChange_BingMap(parseFloat(window._progressBarValue), true, false);
+        let progressBar = document.querySelector("#progressBarapp");
+        progressBar.onchange = function() {
+          onChange_BingMap(parseFloat(progressBar.value), false, true);
+          window._progressBarValue = parseFloat(progressBar.value);
+        };
 
         resolve();
       });
@@ -465,11 +561,13 @@ export default function BasemapGallery() {
 
         let mapboxMap = new Promise(function(resolve, reject) {
           window._view.map = window._mapboxMap;
-          window._mapboxMap.addMany([
-            window._layer,
-            window._MapImage,
-            window._survyPoint,
-          ]);
+
+          onChange_mapboxMap(parseFloat(window._progressBarValue), true, false);
+          let progressBar = document.querySelector("#progressBarapp");
+          progressBar.onchange = function() {
+            onChange_mapboxMap(parseFloat(progressBar.value), false, true);
+            window._progressBarValue = parseFloat(progressBar.value);
+          };
 
           resolve();
         });
@@ -486,11 +584,13 @@ export default function BasemapGallery() {
 
       let SpaceMap = new Promise(function(resolve, reject) {
         window._view.map = window._SpaceMap;
-        window._SpaceMap.addMany([
-          window._layer,
-          window._MapImage,
-          window._survyPoint,
-        ]);
+
+        onChange_SpaceMap(parseFloat(window._progressBarValue), true, false);
+        let progressBar = document.querySelector("#progressBarapp");
+        progressBar.onchange = function() {
+          onChange_SpaceMap(parseFloat(progressBar.value), false, true);
+          window._progressBarValue = parseFloat(progressBar.value);
+        };
 
         resolve();
       });
@@ -786,6 +886,382 @@ function onChange_streetMap(numOpicty, poolGoTo, RempoveMap) {
   }
   // window._topoMap.add(MapImage);
   window._streetMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_hybridMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._hybridMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._hybridMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_terrainMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._terrainMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._terrainMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_grayMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._grayMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._grayMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_darkGrayMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._darkGrayMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._darkGrayMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_oceansMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._oceansMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._oceansMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_nationalGeographicMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._nationalGeographicMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._nationalGeographicMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_NGeographicMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._nationalGeographicMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._nationalGeographicMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_osmMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._osmMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._osmMap.addMany([window._layer, window._MapImage, window._survyPoint]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_grayVectorMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._grayVectorMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._grayVectorMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_darkGrayVectorMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._darkGrayVectorMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._darkGrayVectorMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_SNVectorMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._streetsNavigationVectorMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._streetsNavigationVectorMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_SReliefVectorMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._streetsReliefVectorMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._streetsReliefVectorMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_SNightVectorMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._streetsNightVectorMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._streetsNightVectorMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_topoVectorMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._topoVectorMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._topoVectorMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_SVectorMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._streetsVectorMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._streetsVectorMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange__GMapStreets(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._GoogleMapStreets.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._GoogleMapStreets.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_GMSatellite(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._GoogleMapsSatellite.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._GoogleMapsSatellite.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_BingMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._BingMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._BingMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_mapboxMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._mapboxMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._mapboxMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+function onChange_SpaceMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._SpaceMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._SpaceMap.addMany([
     window._layer,
     window._MapImage,
     window._survyPoint,
