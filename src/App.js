@@ -39,7 +39,7 @@ export default function App() {
   React.useEffect(() => {
     topoMap = new ArcGISMap({
       basemap: "topo",
-      layers: [layer, window._survyPoint, window._MapImage],
+      // layers: [layer, window._survyPoint, window._MapImage],
     });
 
     streetMap = new ArcGISMap({

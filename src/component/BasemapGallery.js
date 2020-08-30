@@ -12,12 +12,8 @@ export default function BasemapGallery() {
         window._lastZoomConfig = window._view.zoom;
         let psatelliteMap = new Promise(function(resolve, reject) {
           window._view.map = window._satelliteMap;
-          window._satelliteMap.addMany([
-            window._layer,
-            window._MapImage,
-            window._survyPoint,
-          ]);
-
+          // console.log(FeaturesTableWithToc);
+          onChange_satelliteMap(parseFloat(1, true, false));
           resolve();
         });
         psatelliteMap.then(function() {
@@ -32,12 +28,7 @@ export default function BasemapGallery() {
       window._lastZoomConfig = window._view.zoom;
       let ptopoMap = new Promise(function(resolve, reject) {
         window._view.map = window._topoMap;
-        window._topoMap.addMany([
-          window._layer,
-          window._MapImage,
-          window._survyPoint,
-        ]);
-
+        onChange_topoMap(parseFloat(1, true, false));
         resolve();
       });
       ptopoMap.then(function() {
@@ -53,12 +44,7 @@ export default function BasemapGallery() {
 
       let pstreetMap = new Promise(function(resolve, reject) {
         window._view.map = window._streetMap;
-        window._streetMap.addMany([
-          window._layer,
-          window._MapImage,
-          window._survyPoint,
-        ]);
-
+        onChange_streetMap(parseFloat(1, true, false));
         resolve();
       });
       pstreetMap.then(function() {
@@ -729,4 +715,67 @@ export default function BasemapGallery() {
       </div>
     </div>
   );
+}
+
+export function onChange_satelliteMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._satelliteMap.removeAll();
+    window._topoMap.removeAll();
+    window._streetMap.removeAll();
+  }
+  window._satelliteMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+export function onChange_topoMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._satelliteMap.removeAll();
+    window._topoMap.removeAll();
+    window._streetMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._topoMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
+}
+export function onChange_streetMap(numOpicty, poolGoTo, RempoveMap) {
+  window._MapImage.opacity = numOpicty;
+  //for delete all layers
+  if (RempoveMap == true) {
+    window._satelliteMap.removeAll();
+    window._topoMap.removeAll();
+    window._streetMap.removeAll();
+  }
+  // window._topoMap.add(MapImage);
+  window._streetMap.addMany([
+    window._layer,
+    window._MapImage,
+    window._survyPoint,
+  ]);
+  //wait until the layer is loaded
+  window._MapImage.when(() => {
+    if (poolGoTo == true) {
+      window._view.goTo(window._MapImage.fullExtent);
+    }
+  });
 }

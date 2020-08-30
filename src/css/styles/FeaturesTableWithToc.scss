@@ -1,0 +1,45 @@
+.TocHide {
+  position: absolute;
+  border: 1px solid red;
+  width: 556px;
+  height: 400px;
+  overflow: auto;
+}
+
+.attributeHide {
+  position: absolute;
+  border: 1px solid red;
+  width: 556px;
+  height: 400px;
+  overflow: auto;
+  bottom: 20px;
+  left: 50px;
+}
+.lblCount {
+  border: 1px solid red;
+  color: blue;
+}
+
+/* .ulToggle {
+        list-style-type: "+";
+        display: "none";
+      } */
+/* .ulToggle > li {
+        list-style-type: "+";
+        display: "none";
+      } */
+/* .lll {
+        list-style-type: "-";
+        background-color: aqua;
+      }
+      .lll li {
+        list-style-type: "-";
+        background-color: aqua;
+      }
+      .lll ul li {
+        list-style: none;
+      }
+
+      .lll li:before {
+        padding-right: 5px;
+      } */

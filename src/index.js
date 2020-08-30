@@ -2,7 +2,6 @@ import "./config";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import FeaturesService from "./component/FeaturesService";
 import Widgets from "./component/Widgets";
 import NavigationTools from "./component/NavigationTools";
 import PrintWidget from "./component/PrintWidget";
@@ -12,7 +11,6 @@ import SearchWidget from "./component/SearchWidget";
 import HierarchicalSearch from "./component/HierarchicalSearch";
 import Bookmarks from "./component/Bookmarks";
 import MapTarget from "./component/MapTarget";
-import FeaturesTable from "./component/FeaturesTable";
 import Overview_map from "./component/Overview_map";
 import SynchronizeView from "./component/SynchronizeView";
 import BasemapGallery from "./component/BasemapGallery";
@@ -20,13 +18,14 @@ import RemoveGraphic from "./component/RemoveGraphic";
 import ReviewShapfile from "./component/ReviewShapfile";
 import SearchByCordinates from "./component/SearchByCordinates";
 import SpatialQuery from "./component/SpatialQuery";
+import FeaturesTableWithToc from "./component/FeaturesTableWithToc";
 
 const wrapper = document.getElementById("root");
 wrapper
   ? ReactDOM.render(
       <>
-        <FeaturesService />
         <App />
+        <FeaturesTableWithToc />
         <Widgets />
         <NavigationTools />
         <PrintWidget />
@@ -36,7 +35,6 @@ wrapper
         <HierarchicalSearch />
         <Bookmarks />
         <MapTarget />
-        <FeaturesTable />
         <Overview_map />
         <SynchronizeView />
         <BasemapGallery />
