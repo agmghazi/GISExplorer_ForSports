@@ -1,4 +1,4 @@
-.TocHide {
+.TocShow {
   position: absolute;
   border: 1px solid red;
   width: 556px;
@@ -6,7 +6,7 @@
   overflow: auto;
 }
 
-.attributeHide {
+.attributeShow {
   position: absolute;
   border: 1px solid red;
   width: 556px;
@@ -21,25 +21,41 @@
 }
 
 /* .ulToggle {
-        list-style-type: "+";
-        display: "none";
-      } */
+  list-style-type: "+";
+  display: "none";
+} */
 /* .ulToggle > li {
-        list-style-type: "+";
-        display: "none";
-      } */
+  list-style-type: "+";
+  display: "none";
+} */
 /* .lll {
-        list-style-type: "-";
-        background-color: aqua;
-      }
-      .lll li {
-        list-style-type: "-";
-        background-color: aqua;
-      }
-      .lll ul li {
-        list-style: none;
-      }
+  list-style-type: "-";
+  background-color: aqua;
+}
+.lll li {
+  list-style-type: "-";
+  background-color: aqua;
+}
+.lll ul li {
+  list-style: none;
+}
 
-      .lll li:before {
-        padding-right: 5px;
-      } */
+.lll li:before {
+  padding-right: 5px;
+} */
+.TocOption {
+  top: 84px;
+  left: 57px;
+  position: absolute;
+}
+.attributeOption {
+  top: 83px;
+  left: 107px;
+  position: absolute;
+}
+.TocHide {
+  display: none;
+}
+.attributeHide {
+  display: none;
+}

@@ -130,7 +130,7 @@ export default function FeaturesTableWithToc() {
       });
     }
 
-    function onChangeServiceMap(numOpicty, poolGoTo) {
+    function onChangeServiceMap(numOpicty, drawTocAndZoom) {
       survyPoint = new FeatureLayer({
         url:
           "http://93.112.6.225/arcgis/rest/services/MapServiceTest/FeatureServer/257",
@@ -155,30 +155,29 @@ export default function FeaturesTableWithToc() {
       window._topoMap.removeAll();
 
       window._topoMap.addMany([window._layer, MapImage, survyPoint]);
+      window._survyPoint = survyPoint;
+      window._survyBuilding = survyBuilding;
+      window._MapImage = MapImage;
 
-      //wait until the layer is loaded
-      MapImage.when(() => {
-        //this code to generate table of content (visible & not visible)
-        let toc = document.getElementById("toc");
+      if (drawTocAndZoom == true) {
+        //wait until the layer is loaded
+        MapImage.when(() => {
+          //this code to generate table of content (visible & not visible)
+          let toc = document.getElementById("toc");
 
-        while (toc.firstChild) {
-          toc.removeChild(toc.firstChild);
-        }
+          while (toc.firstChild) {
+            toc.removeChild(toc.firstChild);
+          }
 
-        let layerList = document.createElement("ul");
-        layerList.classList.add("ulToggle");
-        toc.appendChild(layerList);
+          let layerList = document.createElement("ul");
+          layerList.classList.add("ulToggle");
+          toc.appendChild(layerList);
+          populateLayerRecursive(window._MapImage, layerList);
 
-        window._survyPoint = survyPoint;
-        window._survyBuilding = survyBuilding;
-        window._MapImage = MapImage;
-
-        //populate layer in list
-        populateLayerRecursive(window._MapImage, layerList);
-        if (poolGoTo == true) {
+          //populate layer in list
           window._view.goTo(MapImage.fullExtent);
-        }
-      });
+        });
+      }
     }
     //this for query data
     function getCount(LayerID, el, labelHover) {
@@ -563,10 +562,17 @@ export default function FeaturesTableWithToc() {
     // MapImage.when(() => {
     //   window._view.goTo({ target: MapImage.fullExtent });
     // }, []);
+
+    $(".TocOption").click(function() {
+      $(".TocShow").toggleClass("TocHide");
+    });
+    $(".attributeOption").click(function() {
+      $(".attributeShow").toggleClass("attributeHide");
+    });
   });
   return (
     <>
-      <div className="TocHide">
+      <div className="TocShow TocHide">
         <div>
           <input
             id="progressBarapp"
@@ -580,9 +586,15 @@ export default function FeaturesTableWithToc() {
           <div valign="top" id="toc"></div>
         </div>
       </div>
-      <div className="attributeHide">
+      <div className="attributeShow attributeHide">
         <div id="PageCounter"></div>
         <div id="attributeTable"></div>
+      </div>
+      <div className="TocOption">
+        <img src="https://img.icons8.com/offices/30/000000/layers.png" />
+      </div>
+      <div className="attributeOption">
+        <img src="https://img.icons8.com/material-rounded/30/000000/table-1.png" />
       </div>
     </>
   );
