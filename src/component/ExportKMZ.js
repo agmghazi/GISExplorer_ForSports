@@ -4,39 +4,12 @@ import SketchViewModel from "esri/widgets/Sketch/SketchViewModel";
 import Graphic from "esri/Graphic";
 
 export default function ExportKMZ() {
-  var selectKMZLayersIDGlobal;
-  var selectKMZLayersNameGlobal;
   let ServiceURL =
     "http://93.112.6.225/arcgis/rest/services/A_MapService/MapServer?f=pjson";
   let KMZServiceURL =
     "http://93.112.6.225/arcgis/rest/services/A_MapService/MapServer/";
 
   React.useEffect(() => {
-    let requestOptionsByObj = {
-      responseType: "json",
-    };
-    Request(ServiceURL, requestOptionsByObj).then(function(response) {
-      let resultByobj = response.data;
-      let lstKMZLayersByobj = document.getElementById("lstKMZObjLayer");
-
-      lstKMZLayersByobj.addEventListener("change", function() {
-        let selectKMZLayersID =
-          lstKMZLayersByobj.options[lstKMZLayersByobj.selectedIndex].id;
-        let selectKMZLayersName =
-          lstKMZLayersByobj.options[lstKMZLayersByobj.selectedIndex].name;
-        selectKMZLayersIDGlobal = selectKMZLayersID;
-        selectKMZLayersNameGlobal = selectKMZLayersName;
-      });
-
-      for (let i = 0; i < resultByobj.layers.length; i++) {
-        let options = document.createElement("option");
-        options.textContent = resultByobj.layers[i].name;
-        options.id = resultByobj.layers[i].id;
-        options.name = resultByobj.layers[i].name;
-        lstKMZLayersByobj.appendChild(options);
-      }
-    });
-
     const pointSymbol = {
       type: "simple-marker", // autocasts as new SimpleMarkerSymbol()
       style: "square",
@@ -100,23 +73,14 @@ export default function ExportKMZ() {
         let geometriesArray = response.features.map(function(feature) {
           return feature.geometry;
         });
+        // let featureName = response.features.map(function(feature) {
+        //   return feature.attributes.Name;
+        // });
         let geobjectIds = response.features.map(function(feature) {
           return feature.attributes.OBJECTID;
         });
 
-        console.log(geobjectIds);
-        console.log(selectKMZLayersIDGlobal);
-        console.log(selectKMZLayersNameGlobal);
-
-        for (let i = 0; i < geobjectIds.length; i++) {
-          let calc = `${geobjectIds[i]},`;
-        }
-        ExportKMZFByObjectid(
-          selectKMZLayersIDGlobal,
-          selectKMZLayersNameGlobal,
-          // geobjectIds[i]+","
-          `${geobjectIds[i]},`
-        );
+        ExportKMZFByObjectid(3, "قطع أراضى الممتلكات", geobjectIds);
 
         const fillsymbol = {
           type: "simple-fill", // autocasts as new SimpleFillSymbol()
@@ -218,8 +182,7 @@ export default function ExportKMZ() {
       <div className="KMZLayers">
         <select id="lstKMZLayers"></select>
         <br />
-        <select id="lstKMZObjLayer"></select>
-        <button id="KMZExport">Export</button>
+        <button id="KMZExport">Export to KMZ</button>
       </div>
     </>
   );
