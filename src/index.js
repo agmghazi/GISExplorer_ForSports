@@ -19,6 +19,7 @@ import ReviewShapfile from "./component/ReviewShapfile";
 import SearchByCordinates from "./component/SearchByCordinates";
 import SpatialQuery from "./component/SpatialQuery";
 import FeaturesTableWithToc from "./component/FeaturesTableWithToc";
+import ExportKMZ from "./component/ExportKMZ";
 
 const wrapper = document.getElementById("root");
 wrapper
@@ -42,6 +43,7 @@ wrapper
         <RemoveGraphic />
         <SearchByCordinates />
         <SpatialQuery />
+        <ExportKMZ />
       </>,
       wrapper
     )

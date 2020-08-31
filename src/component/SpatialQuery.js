@@ -44,10 +44,18 @@ export default function SpatialQuery() {
       //   query.units = "kilometers";
       query.spatialRelationship = "contains";
       query.returnGeometry = true;
+      // query.outFields = ["*"];
+      // query.outFields = [ "POPULATION" ];
+      // query.objectIds = [];
       window._survyBuilding.queryFeatures(query).then(function(response) {
+        // console.log(response);
         let geometriesArray = response.features.map(function(feature) {
           return feature.geometry;
         });
+        // let geobjectIds = response.features.map(function(feature) {
+        //   return feature.attributes.OBJECTID;
+        // });
+        // console.log(geobjectIds);
         const fillsymbol = {
           type: "simple-fill", // autocasts as new SimpleFillSymbol()
           color: "rgba(138,43,226)",
