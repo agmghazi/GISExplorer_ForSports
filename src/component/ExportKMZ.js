@@ -80,6 +80,7 @@ export default function ExportKMZ() {
           return feature.attributes.OBJECTID;
         });
 
+        alert("" + "عدد القطع التى تم استخراجها " + geobjectIds.length);
         ExportKMZFByObjectid(3, "قطع أراضى الممتلكات", geobjectIds);
 
         const fillsymbol = {
@@ -155,7 +156,6 @@ export default function ExportKMZ() {
     // #endregion
 
     function ExportKMZFByObjectid(layerId, layerName, Objectid) {
-      debugger;
       let oLayerID = KMZServiceURL + layerId + "/query";
       let queryOption = {
         responseType: "blob",
