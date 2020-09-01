@@ -80,8 +80,16 @@ export default function ExportKMZ() {
           return feature.attributes.OBJECTID;
         });
 
-        alert("" + "عدد القطع التى تم استخراجها " + geobjectIds.length);
         ExportKMZFByObjectid(3, "قطع أراضى الممتلكات", geobjectIds);
+
+        document.getElementById(
+          "CallMessageAlert"
+        ).innerHTML = ` عدد القطع التى تم استخراجها  ${geobjectIds.length}`;
+
+        let MessageAlertClicked = document.getElementById(
+          "MessageAlertClicked"
+        );
+        MessageAlertClicked.click();
 
         const fillsymbol = {
           type: "simple-fill", // autocasts as new SimpleFillSymbol()
@@ -121,7 +129,16 @@ export default function ExportKMZ() {
           lstKMZLayers.options[lstKMZLayers.selectedIndex].id;
         let selectKMZLayersName =
           lstKMZLayers.options[lstKMZLayers.selectedIndex].name;
+
         ExportKMZFByLayer(selectKMZLayersID, selectKMZLayersName);
+
+        document.getElementById(
+          "CallMessageAlert"
+        ).innerHTML = `تم استخراج طبقة -  ${selectKMZLayersName}`;
+        let MessageAlertClicked = document.getElementById(
+          "MessageAlertClicked"
+        );
+        MessageAlertClicked.click();
       });
 
       for (let i = 0; i < result.layers.length; i++) {
@@ -176,13 +193,32 @@ export default function ExportKMZ() {
         })
         .catch((err) => console.log("ERRor to export KMZ func"));
     }
+    $(document).ready(function() {
+      $("#success-alert").hide();
+      $("#MessageAlertClicked").click(function showAlert() {
+        $("#success-alert")
+          .fadeTo(2000, 500)
+          .slideUp(500, function() {
+            $("#success-alert").slideUp(500);
+          });
+      });
+    });
   });
   return (
     <>
       <div className="KMZLayers">
-        <select id="lstKMZLayers"></select>
+        <select id="lstKMZLayers">
+          <option value="0">اختر اسم الطبقة</option>
+        </select>
         <br />
-        <button id="KMZExport">Export to KMZ</button>
+        <button id="KMZExport">KMZ تصدير الى ملف </button>
+      </div>
+      <button id="MessageAlertClicked"></button>
+      <div className="alert alert-success" id="success-alert">
+        <button type="button" className="close" data-dismiss="alert">
+          x
+        </button>
+        <label id="CallMessageAlert"></label>
       </div>
     </>
   );
