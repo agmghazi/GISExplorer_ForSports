@@ -20,6 +20,7 @@ import SearchByCordinates from "./component/SearchByCordinates";
 import SpatialQuery from "./component/SpatialQuery";
 import FeaturesTableWithToc from "./component/FeaturesTableWithToc";
 import ExportKMZ from "./component/ExportKMZ";
+import PrintMap from "./component/PrintMap";
 
 const wrapper = document.getElementById("root");
 wrapper
@@ -44,6 +45,7 @@ wrapper
         <SearchByCordinates />
         <SpatialQuery />
         <ExportKMZ />
+        <PrintMap />
       </>,
       wrapper
     )
